@@ -1,0 +1,874 @@
+:root {
+    --main-color: #d81326;
+    --main-bg-color: #d81326;
+    --main-border-radius: 0.4rem;
+    --main-font-color: #000;
+
+}
+
+p {
+    font-size: 0.85rem;
+    line-height: 2;
+}
+
+a {
+    text-decoration: none;
+}
+
+html,
+body {
+    font-family: 'Tajawal', sans-serif;
+    overflow-x: hidden;
+}
+
+*:not(.fa, i) {
+    font-family: 'Tajawal', sans-serif;
+}
+
+.btn.btn-primary {
+    background-color: var(--main-bg-color);
+    border-color: var(--main-bg-color);
+}
+
+.nav-item .nav-link,
+.navbar-light .navbar-nav .nav-link,
+.navbar-light .navbar-nav .nav-link.active,
+.navbar-light .navbar-nav .show>.nav-link {
+    font-size: 18px;
+    color: #000;
+}
+
+.disinput {
+    width: 53px;
+    min-width: 20px;
+    background: transparent;
+    border: 0;
+    font-weight: bold;
+    color: #d00f25 !important;
+}
+
+/* Header */
+.header {
+    background-color: #fff;
+}
+
+.right {
+    text-align: center;
+    font-size: 16px;
+    background-color: #d81326;
+    color: #fff;
+    padding: 10px;
+}
+
+.slider {
+    width: 100%;
+    height: 550px;
+    background: linear-gradient(to bottom,
+            #d81326 0%,
+            #d81326 50%,
+            #d00f25 50%,
+            #d00f25 100%);
+    display: block;
+    position: relative;
+}
+
+.intro {
+    margin-top: 190px;
+    color: #FFF;
+    padding-right: 100px;
+}
+
+.intro h1 {
+    line-height: 60px;
+}
+
+.intro button {
+    color: #d00f25;
+    background-color: #FFF;
+    border: 0;
+    font-size: 22px;
+    padding: 5px 50px;
+    font-weight: bold;
+    margin-top: 30px;
+}
+
+.search {
+    width: 100%;
+    text-align: center;
+    margin: auto;
+    margin-top: 50px;
+
+}
+
+.searchdiv {
+    width: 50%;
+    height: 50px;
+    background-color: #fff;
+    border-radius: 5px;
+    text-align: center;
+    margin: auto;
+    display: block;
+    position: relative;
+    z-index: 2;
+}
+
+.searchdiv input[type="text"] {
+    width: 80%;
+    line-height: 100%;
+    height: 100%;
+    border: 0;
+}
+
+.btn {
+    border: 1px solid transparent !important;
+}
+
+.productSlider {
+    height: 500px;
+}
+
+.btn:hover {
+    color: #fff;
+    background-color: #d00f25;
+    border-color: #fff;
+    border: 1px solid #fff !important;
+    box-shadow: 0 0 5px #ccc;
+}
+
+.btn-check:focus+.btn-success,
+.btn-success:focus {
+    color: #fff;
+    background-color: #d00f25;
+    border-color: #fff;
+    border: 1px solid #fff !important;
+    box-shadow: 0 0 5px #ccc;
+
+}
+
+:focus-visible {
+    outline: none !important;
+}
+
+.searchiconn {
+    font-size: 30px;
+    position: absolute;
+    left: 12px;
+    top: 12px;
+    color: #8f8f8f;
+}
+
+.flightImg {
+    position: absolute;
+    top: 30%;
+    width: 30%;
+    left: 20%;
+    z-index: 1;
+}
+
+.products {
+    width: 100%;
+    display: block;
+    padding: 50px 0;
+}
+
+.products h1 {
+    text-align: center;
+    margin-bottom: 50px;
+}
+
+.singlePro {
+    text-align: center;
+    margin: auto;
+    width: 100%;
+    background-color: #fff;
+    color: #000;
+    height: 180px;
+    border-radius: 10px;
+    overflow: hidden;
+    box-shadow: 0 0 10px #ccc;
+    margin-top: 25px;
+
+}
+
+.singlePro img {
+    width: 100%;
+    height: 80%;
+    object-fit: cover;
+
+}
+
+.nav-tabs .nav-item.show .nav-link,
+.nav-tabs .nav-link.active,
+.nav-tabs .nav-link {
+    background-color: transparent !important;
+    border: 0;
+    background-color: #fff;
+    border-color: #dee2e6 #dee2e6 #fff;
+    padding: 0;
+}
+
+.nav-tabs .nav-link.active .singlePro {
+    background-color: #d00f25;
+    color: #FFF;
+}
+
+.singlePro p {
+    font-weight: bold;
+    margin-bottom: 0;
+    line-height: 32px;
+}
+
+.mysecondNav .nav-tabs .nav-item.show .nav-link,
+.mysecondNav .nav-tabs .nav-link.active {
+    border: 0;
+    background-color: #d00f25 !important;
+    color: #fff;
+    border-radius: 5px;
+    padding: 5px 10px;
+
+}
+
+.nav-tabs {
+    border: 0;
+}
+
+.divHead {
+    margin-bottom: 50px;
+}
+
+.nav-tabs .nav-link {
+    background-color: #f2f2f2;
+    color: #000;
+    border-radius: 5px;
+    margin-left: 20px;
+}
+
+.primary_product {
+    width: 100%;
+    height: 300px;
+    background-color: #fff;
+    border-radius: 20px;
+    overflow: hidden;
+    box-shadow: 0 0 10px #ccc;
+    margin-bottom: 30px;
+
+}
+
+.primary_product img {
+    width: 100%;
+    height: 70%;
+    object-fit: cover;
+
+}
+
+.primary_product p {
+    margin: 0;
+    font-weight: bold;
+    font-size: 16px;
+}
+
+.primary_product p:nth-of-type(2) {
+    color: #d00f25;
+}
+
+.primary_product span {
+    font-size: 13px;
+    margin: 0;
+    margin-top: -2px;
+    display: block;
+}
+
+.pro_dd {
+    padding: 0 30px;
+    display: block;
+    position: relative;
+    padding: 80px 150px;
+}
+
+.pro_d {
+    padding: 0 30px;
+    display: block;
+    position: relative;
+
+}
+
+.fa-solid.fa-cart-shopping {
+    color: #d00f25;
+}
+
+.addToCard {
+    position: absolute;
+    left: 20px;
+    top: calc(50% - 15px);
+    font-size: 22px;
+    background: #d00f25;
+    border-radius: 50%;
+    width: 30px;
+    height: 30px;
+    line-height: 30px;
+    text-align: center;
+    color: #FFF;
+    z-index: 2;
+}
+
+#nav-tab {
+    margin-bottom: 50px;
+}
+
+.mazaya {
+    text-align: center;
+    display: block;
+    padding: 50px 0;
+}
+
+.pro_tit p {
+    padding: 30px 0 30px 30px;
+}
+
+.maz {
+    text-align: center;
+    background: #f2f2f2;
+    padding: 50px;
+    border-radius: 10px;
+    margin-top: 30px;
+}
+
+.maz p {
+    font-weight: bold;
+    margin-top: 20px;
+}
+
+.most_order {
+    display: block;
+    text-align: center;
+    padding: 50px 0;
+}
+
+.testmon {
+    display: block;
+    text-align: center;
+    margin: auto;
+    padding: 50px 0;
+}
+
+.testmon [type=button]:not(:disabled),
+.testmon [type=reset]:not(:disabled),
+.testmon [type=submit]:not(:disabled),
+.testmon button:not(:disabled) {
+    cursor: pointer;
+    background: #000;
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+    padding: 0;
+    display: block;
+    width: 50px;
+    height: 50px;
+    text-align: center;
+    margin: auto;
+}
+
+.carousel-control-prev-icon {
+    display: block;
+    position: relative;
+    margin: 8px;
+    padding: 0;
+    margin-left: 0 !important;
+}
+
+.carousel-control-next-icon {
+    margin: 8px 12px 14px 15px;
+}
+
+.footer {
+    display: block;
+    padding: 50px 0;
+    background-color: #f2f2f2;
+}
+
+.footer p {
+    margin-bottom: 0;
+    line-height: 22px;
+}
+
+.footer i {
+    font-size: 20px;
+    margin-left: 10px;
+    margin-top: 20px;
+}
+
+.footer .col-lg-6 {
+    padding: 20px 50px;
+}
+
+.pro_name {
+    width: 100%;
+    min-height: 100px;
+    background-color: #F2F2F2;
+    border-radius: 10px;
+    padding: 20px;
+}
+
+.pro_name h3 {
+    color: #d81326;
+}
+
+.Price {
+    width: 100%;
+    min-height: 100px;
+    background: #f2f2f2;
+    border-radius: 10px;
+    display: flex;
+    text-align: center;
+    flex-direction: initial;
+    padding-top: 30px;
+    margin-bottom: 30px;
+}
+
+.Price h5 {
+    margin-bottom: 0;
+    font-weight: bold;
+}
+
+.Price div {
+    display: flex;
+    flex: auto;
+    text-align: center;
+    display: block;
+}
+
+.pro_adds h2 {
+    color: #d00f25;
+    margin-bottom: 30px;
+    font-weight: bold;
+}
+
+.Radiio {
+    display: -webkit-box;
+    float: right;
+    margin-right: 30px;
+    margin-top: 15px;
+    cursor: pointer;
+}
+
+.NameandSelect {
+    text-align: right;
+    position: relative;
+}
+
+.number-input {
+    display: flex;
+    align-items: center;
+}
+
+input:disabled {
+    color: #000;
+}
+
+.number-input button {
+    padding: 5px 10px;
+    font-size: 16px;
+    border: none;
+    background-color: #f0f0f0;
+    cursor: pointer;
+    border-radius: 50%;
+    font-weight: bold;
+    font-size: 30px;
+    padding: 0;
+    width: 30px;
+    height: 30px;
+    line-height: 0;
+    padding-bottom: 4px;
+    background: #FFF;
+    box-shadow: 3px 3px 5px #CCC;
+    color: #d81326;
+}
+
+.number-input input {
+    padding: 5px 10px;
+    font-size: 16px;
+    border: 1px solid #ccc;
+    width: 60px;
+    text-align: center;
+    background: transparent;
+    border: 0;
+    font-size: 20px;
+    font-weight: bold;
+}
+
+input[type=number]::-webkit-inner-spin-button,
+input[type=number]::-webkit-outer-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+}
+
+.number-input button:hover {
+    background-color: #d0d0d0;
+}
+
+.number-input button:active {
+    background-color: #b0b0b0;
+}
+
+.py {
+    top: 5px;
+}
+
+.py .option-input {
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    -ms-appearance: none;
+    -o-appearance: none;
+    appearance: none;
+    position: relative;
+    height: 30px;
+    width: 30px;
+    transition: all 0.15s ease-out 0s;
+    background: #cbd1d8;
+    border: none;
+    color: #fff;
+    cursor: pointer;
+    display: inline-block;
+    margin-right: 1rem;
+    outline: none;
+    position: relative;
+    z-index: 1000;
+}
+
+.py .option-input:hover {
+    background: #9faab7;
+}
+
+.py .option-input:checked::before {
+    width: 40px;
+    height: 40px;
+    display: flex;
+    content: '\f00c';
+    font-size: 25px;
+    font-weight: bold;
+    position: absolute;
+    align-items: center;
+    justify-content: center;
+    font-family: 'Font Awesome 5 Free';
+    right: -6px;
+    top: -6px;
+}
+
+.py .option-input:checked::after {
+    -webkit-animation: click-wave 0.65s;
+    -moz-animation: click-wave 0.65s;
+    animation: click-wave 0.65s;
+    background: #d00f25;
+    content: '';
+    display: block;
+    position: relative;
+    z-index: 100;
+}
+
+.py .option-input.radio {
+    border-radius: 6px;
+}
+
+.py .option-input.radio::after {
+    border-radius: 6px;
+}
+
+.py .option-input.radio {
+    border-radius: 6px;
+    background: #FFF;
+    border: 2px solid #CCC;
+}
+
+.InMuber {
+    pointer-events: none;
+    background-color: #ccc;
+
+}
+
+.py .option-input:checked {
+    background: #d00f25;
+}
+
+.extenstion {
+    width: 100%;
+    min-height: 60px;
+    background-color: #f2f2f2;
+    border-radius: 7px;
+    padding: 15px;
+    display: block;
+    position: relative;
+    margin-bottom: 30px;
+}
+
+.extenstion h5 {
+    font-weight: bold;
+}
+
+.extenstion .py {
+    left: 25px;
+    top: calc(50% - 15px);
+}
+
+.extenstion .py .option-input:checked::before {
+    right: -6px;
+    top: -6px;
+}
+
+.parent_ext h2 {
+    color: #d00f25;
+    margin-bottom: 20px;
+    font-weight: bold;
+    color: #d00f25;
+    margin-bottom: 30px;
+    font-weight: bold;
+    margin-top: 50px;
+}
+
+
+
+
+
+@keyframes click-wave {
+    0% {
+        height: 40px;
+        width: 40px;
+        opacity: 0.35;
+        position: relative;
+    }
+
+    100% {
+        height: 200px;
+        width: 200px;
+        margin-left: -80px;
+        margin-top: -80px;
+        opacity: 0;
+    }
+}
+
+.py {
+    position: absolute;
+}
+
+.py input {
+    margin-right: 0;
+}
+
+.tootal {
+    text-align: center;
+    width: 100%;
+    display: block;
+    padding: 50px 0;
+}
+
+.tootal h5 {
+    font-weight: bold;
+    color: #d00f25;
+    color: #000;
+    margin-bottom: 20px;
+}
+
+.tootal h6 {
+    font-weight: bold;
+    color: #d00f25;
+    margin-bottom: 30px;
+}
+
+.tootal button {
+    width: 130px;
+    text-align: center;
+    margin: auto;
+}
+
+.btn-success {
+    background-color: #d00f25;
+}
+
+.tootal span {
+    margin-top: 30px;
+    color: #8b8b8b;
+}
+
+.sliderProducts {
+    height: 200px;
+}
+
+.sliderProducts .intro {
+    margin-top: 60px;
+}
+
+@media (min-width: 1025px) {
+    .h-custom {
+        height: 100vh !important;
+    }
+}
+
+.card-registration .select-input.form-control[readonly]:not([disabled]) {
+    font-size: 1rem;
+    line-height: 2.15;
+    padding-left: .75em;
+    padding-right: .75em;
+}
+
+.card-registration .select-arrow {
+    top: 13px;
+}
+
+.bg-grey {
+    background-color: #eae8e8;
+}
+
+@media (min-width: 992px) {
+    .card-registration-2 .bg-grey {
+        border-top-right-radius: 16px;
+        border-bottom-right-radius: 16px;
+    }
+}
+
+@media (max-width: 991px) {
+    .card-registration-2 .bg-grey {
+        border-bottom-left-radius: 16px;
+        border-bottom-right-radius: 16px;
+    }
+}
+
+.OneCart {
+    background: #f1f1f1;
+    padding: 15px;
+    border-radius: 5px;
+}
+.mypprice {
+    float: left;
+    font-weight: bold;
+    color: #d00f25;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+@media screen and (max-width: 796px) {
+
+    .nav-item .nav-link,
+    .navbar-light .navbar-nav .nav-link,
+    .navbar-light .navbar-nav .nav-link.active,
+    .navbar-light .navbar-nav .show>.nav-link {
+        color: #000
+    }
+
+    .flightImg {
+        position: absolute;
+        top: 0;
+        width: 80%;
+        left: 10%;
+    }
+
+    .intro {
+        margin-top: 30px;
+        padding-right: 0 !important;
+        text-align: center;
+        z-index: 2;
+    }
+
+    .intro h1 {
+        margin-bottom: 190px;
+    }
+
+    .flightImg {
+        top: 140px;
+    }
+
+    .intro button {
+        margin-top: 0;
+    }
+
+    .searchdiv {
+        width: 100%;
+    }
+
+    .search {
+        margin-top: 30px;
+    }
+
+    .nav-tabs .nav-item.show .nav-link,
+    .nav-tabs .nav-link.active,
+    .nav-tabs .nav-link {
+        margin: 0;
+    }
+
+    .col-xs-6 {
+        width: 50%;
+    }
+
+    .maz {
+        padding: 50px 10px;
+    }
+
+    nav .col-xs-6 {
+        width: 50%;
+        padding: 10px;
+    }
+
+    .nav-tabs .nav-item.show .nav-link,
+    .nav-tabs .nav-link.active,
+    .nav-tabs .nav-link {
+        padding: 10px;
+    }
+
+    .primary_product {
+        margin-bottom: 30px;
+    }
+
+    .productSlider {
+        height: 330px;
+    }
+
+    .Price h5 {
+        font-size: 15px;
+    }
+
+    .number-input input {
+        padding: 0;
+        width: 20px;
+    }
+
+    .Price>div:first-child {
+        padding-right: 35px;
+    }
+
+    .NameandSelect .py {
+        right: -35px;
+    }
+
+    .NameandSelect h5 {
+        padding-right: 10px !important;
+    }
+
+    .Price>div>h5 {
+        line-height: 40px !important;
+    }
+
+    .pro_d {
+        padding: 0;
+    }
+
+    .pro_name {
+        margin-top: 30px;
+    }
+
+    .slider.productSlider {
+        overflow: hidden;
+    }
+}

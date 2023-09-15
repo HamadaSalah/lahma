@@ -130,7 +130,10 @@ class ProductController extends Controller
      */
     public function destroy(string $id)
     {
-        $cat = Product::findOrFail($id)->delete();
+        $product = Product::findOrFail($id);
+        $product->options()?->detach();
+        $product->products()?->delete();
+        $product->delete();
 
         return redirect()->route('admin.products.index')->with('success', 'تم حذف المنتج بنجاح');
     }

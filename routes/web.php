@@ -13,10 +13,14 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
 
 Auth::routes();
 
-Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+Route::get('/', [App\Http\Controllers\HomeController::class, 'index'])->name('index');
+Route::get('/product/{id}', [App\Http\Controllers\HomeController::class, 'product'])->name('product');
+Route::get('/mycard', [App\Http\Controllers\HomeController::class, 'mycard'])->name('mycard');
+Route::post('/addToCard', [App\Http\Controllers\HomeController::class, 'addToCard'])->name('addToCard');
+Route::post('/mylogin', [App\Http\Controllers\HomeController::class, 'mylogin'])->name('mylogin');
+Route::get('/products', [App\Http\Controllers\HomeController::class, 'products'])->name('products');
+Route::get('/categories', [App\Http\Controllers\HomeController::class, 'categories'])->name('categories');
+

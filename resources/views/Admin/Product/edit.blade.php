@@ -1,3 +1,4 @@
+
 @extends('Admin.master')
 @section('title')
 
@@ -31,7 +32,6 @@
                     @endforeach
                 </select>
             </div>
-
             <button type="submit" class="btn btn-primary">حفط</button>
         </form>
 
