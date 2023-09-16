@@ -55,7 +55,7 @@
             {{-- SUbproductsRow --}}
             @if ($product->products)
                 <div class="row">
-                    <h2>الحجم</h2>
+                    <h2>الحجم <span style="position: relative;bottom: -11px">*</span></h2>
                     @foreach($product->products as $subproducts)
                         <div class="col-lg-6 col-md-12">
                             <div class="Price">
@@ -97,7 +97,7 @@
                 {{-- begin of features --}}
                 @foreach ($product->options as $option)
                     <div class="parent_ext">
-                        <h2>{{$option->name}}</h2>
+                        <h2>{{$option->name}} <span style="position: relative;bottom: -11px">*</span></h2>
                         <div class="row">
                             @foreach ( $option->options as $key => $op)
                                 <div class="col-lg-6 col-md-12">
