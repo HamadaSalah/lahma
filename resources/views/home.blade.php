@@ -48,12 +48,12 @@
 
         <div class="tab-content" id="nav-tabContent">
             @foreach($cats as $mycatt)
-                <div class="tab-pane fade show {{ $loop->index == 0 ? 'active' : '' }}" id="nav-{{$mycatt->id}}" role="tabpanel" aria-labelledby="nav-{{$mycatt->id}}-tab">
+                <div class="tab-pane fade show <?php $ress = ($loop->index == 0) ? 'active' : ''; echo $ress;  ?>" id="nav-{{$mycatt->id}}" role="tabpanel" aria-labelledby="nav-{{$mycatt->id}}-tab">
                     @if($mycatt->child)
                         <nav class="mysecondNav">
                             <div class="nav nav-tabs" id="nav-tab" role="tablist">
                                 @foreach ($mycatt->child as $child)
-                                    <button class="nav-link active" id="nav-{{$child->id}}-tab" data-bs-toggle="tab" data-bs-target="#nav-{{$child->id}}"
+                                    <button class="nav-link <?php $ress = ($loop->index == 0) ? 'active' : ''; echo $ress;  ?>" id="nav-{{$child->id}}-tab" data-bs-toggle="tab" data-bs-target="#nav-{{$child->id}}"
                                         type="button" role="tab" aria-controls="nav-{{$child->id}}" aria-selected="true">{{$child->name}}</button>
                                 @endforeach
                             </div>
@@ -62,7 +62,7 @@
                     <div class="tab-content" id="nav-tabContent">
                         @if($mycatt->child)
                         @foreach ($mycatt->child as $mychild)
-                            <div class="tab-pane fade show active" id="nav-{{$mychild->id}}" role="tabpanel" aria-labelledby="nav-{{$mychild->id}}-tab">
+                            <div class="tab-pane fade show <?php $ress = ($loop->index == 0) ? 'active' : ''; echo $ress;  ?>" id="nav-{{$mychild->id}}" role="tabpanel" aria-labelledby="nav-{{$mychild->id}}-tab">
                                 <div class="row">
                                     @foreach ($mychild->products as $prodd)
                                         <div class="col-md-4">
