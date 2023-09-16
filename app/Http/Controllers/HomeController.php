@@ -20,7 +20,9 @@ class HomeController extends Controller
     public function index()
     {
         $cats = Category::with(['child', 'parent', 'products', 'child.products'])->where('category_id', NULL)->get();
-        return view('home', compact('cats'));
+        $products = Product::latest()->take(10)->get();
+
+        return view('home', compact('cats', 'products'));
     }
     /**
      * Show the application dashboard.
