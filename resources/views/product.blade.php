@@ -53,7 +53,7 @@
     <div class="pro_adds">
         <div class="container">
             {{-- SUbproductsRow --}}
-            @if ($product->products)
+            @if (count($product->products))
                 <div class="row">
                     <h2>الحجم <span style="position: relative;bottom: -11px">*</span></h2>
                     @foreach($product->products as $subproducts)

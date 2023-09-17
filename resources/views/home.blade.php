@@ -150,7 +150,7 @@
                         <p>{{$prod->name}}</p>
                         {{-- <span>8 - 11 كيلو</span> --}}
                         <p>{{$prod->price ?? $prod->products[0]->price ?? ''}} ريال</p>
-                        <a href=""><i class="addToCard fa-solid fa-plus"></i></a>
+                        <a href="{{Route('product', $prod->id)}}"><i class="addToCard fa-solid fa-plus"></i></a>
                     </div>
                 </div>
             </div>

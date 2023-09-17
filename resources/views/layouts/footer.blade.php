@@ -1,5 +1,5 @@
 
-<div class="footer">
+<div class="footer" id="footer">
     <div class="container">
       <div class="row">
         <div class="col-lg-6 col-sm-12" >
@@ -17,6 +17,7 @@
           <p>أكثر المنتجات طلباً
           </p>
           <p>اتصل بنا</p>
+          <img src="{{asset('pngegg.png')}}" alt="">
         </div>
         <div class="col-lg-6 col-sm-12">
           <img src="img/maz/pay.png" style="max-width: 100%;" alt="">

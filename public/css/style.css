@@ -742,7 +742,20 @@ input[type=number]::-webkit-outer-spin-button {
     color: #d00f25;
 }
 
-
+#cartCount {
+    position: relative;
+    top: -7px;
+    right: -32px;
+    background: #fff;
+    border-radius: 50%;
+    width: 20px;
+    height: 20px;
+    display: inline-block;
+    color: red;
+    border: 2px solid;
+    text-align: center;
+    line-height: 18px;
+}
 
 
 

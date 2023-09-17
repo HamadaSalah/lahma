@@ -14,7 +14,9 @@ use Illuminate\Support\Facades\Route;
 */
 
 
-Auth::routes();
+Auth::routes([
+    ['register' => false, 'reset' => false]
+]);
 
 Route::get('/', [App\Http\Controllers\HomeController::class, 'index'])->name('index');
 Route::get('/product/{id}', [App\Http\Controllers\HomeController::class, 'product'])->name('product');
@@ -23,4 +25,6 @@ Route::post('/addToCard', [App\Http\Controllers\HomeController::class, 'addToCar
 Route::post('/mylogin', [App\Http\Controllers\HomeController::class, 'mylogin'])->name('mylogin');
 Route::get('/products', [App\Http\Controllers\HomeController::class, 'products'])->name('products');
 Route::get('/categories', [App\Http\Controllers\HomeController::class, 'categories'])->name('categories');
+Route::get('/checkout', [App\Http\Controllers\HomeController::class, 'checkout'])->name('checkout');
+Route::get('/orders', [App\Http\Controllers\HomeController::class, 'orders'])->middleware('auth')->name('orders');
 

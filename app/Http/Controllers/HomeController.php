@@ -2,7 +2,10 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Cart;
 use App\Models\Category;
+use App\Models\Order;
+use App\Models\OrderProduct;
 use App\Models\Product;
 use App\Models\User;
 use Illuminate\Http\Request;
@@ -37,7 +40,6 @@ class HomeController extends Controller
     }
     //
     public function addToCard(Request $request) {
-
         $myproducts = Session::get('mycart') ?? [];
         $myproducts[] = $request->all();
         Session::put('mycart', $myproducts, 43200);
@@ -63,20 +65,67 @@ class HomeController extends Controller
         Session::put('mycart', $myproducts, 43200);
 
         Auth::login($user);
+        if(Session::get('mycart')) {
+            $order = Order::create(['user_id' => auth()->user()->id]);
 
+            foreach(Session::get('mycart') as $mycart) {
+                OrderProduct::create([
+                    'product_id' => $mycart['product_id'],
+                    'sub_product_id' => $mycart['sub_product_id'] ?? '',
+                    'count' => $mycart['count'],
+                    'order_id' => $order->id,
+                ]);
+            }
+            Session::forget('mycart');
+        }
         return redirect()->route('mycard');
     }
+    //
     public function products() {
 
         $products = Product::latest()->take(10)->get();
+
         return view('products', compact('products'));
+    }
+    //
+    public function categories() {
 
-
+        $cats = Category::with(['child', 'parent', 'products', 'child.products'])->where('category_id', NULL)->get();
+        
+        return view('categories', compact('cats'));
 
     }
-    public function categories() {
-        $cats = Category::with(['child', 'parent', 'products', 'child.products'])->where('category_id', NULL)->get();
-        return view('categories', compact('cats'));
+    //
+    public function checkout() {
+
+        if(isset(auth()->user()->id)) {
+            $order = Order::create(['user_id' => auth()->user()->id]);
+            if(Session::get('mycart')) {
+                foreach(Session::get('mycart') as $mycart) {
+                    OrderProduct::create([
+                        'product_id' => $mycart['product_id'],
+                        'sub_product_id' => $mycart['sub_product_id'] ?? '',
+                        'count' => $mycart['count'],
+                        'order_id' => $order->id,
+                    ]);
+                }
+                Session::forget('mycart');
+                return redirect()->Route('index')->with('success', 'تم اضافة الطلب بنجاح');
+            }
+            else {
+                return redirect()->back()->with('failure', 'لا يوجد منتجات');
+            }
+        }
+        else {
+            return redirect()->Route('login');
+        }
+    }
+    //
+    public function orders() {
+
+        $orders = Order::where('user_id', auth()->user()->id)->get();
+        
+        return view('orders', compact('orders'));
 
     }
 }
