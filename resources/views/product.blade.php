@@ -79,7 +79,7 @@
                                         <button class="minus" type="button">-</button>
 
                                         <input type="number" class="InMuber option-input radio" value="1" min="1" max="100"
-                                            step="1" name="count">
+                                            step="1" name="count" disabled>
                                         <button class="plus"  type="button">+</button>
                                     </div>
                                 </div>
@@ -105,7 +105,7 @@
                                         <h5>{{$op}}</h5>
                                         <div class="py">
                                             <label>
-                                                <input type="radio" class="option-input radio" value="{{$op}}" name="{{$option->name}}" required>
+                                                <input type="radio" class="option-input radio" value="{{$op}}" name="options[{{$option->name}}]" required>
                                             </label>
                                         </div>
                                     </div>

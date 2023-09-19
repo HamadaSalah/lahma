@@ -51,7 +51,7 @@
                                                     <div class="col-md-3 col-lg-3 col-xl-2 d-flex">
                                                         العدد
                                                         <input id="form1" min="0" name="quantity"
-                                                            value="{{ $cart['count'] }}"
+                                                            value="{{ $cart['count'] ?? 1 }}"
                                                             type="number" class="form-control form-control-sm" disabled
                                                             style="background: 0;border: 0;text-align: center;font-weight: bold;width: 30px" />
 
@@ -79,8 +79,7 @@
                                     </div>
                                     <div class="col-lg-12">
                                         <h1 class="text-center" style="color: red">{{$total}} ر.س</h1>
-                                        <button style="display: block;width: 100%"
-                                            class="btn btn-success mb-3">الدفع</button>
+                                        <button type="submit" style="display: block;width: 100%" class="btn btn-success mb-3" >الدفع</button>
                                     </div>
                                 </div>
                             </div>
@@ -94,4 +93,7 @@
         </div>
     </form>
 </section>
+@push('myscripts')
+    
+@endpush
 @endsection

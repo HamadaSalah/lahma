@@ -50,6 +50,9 @@ body {
 /* Header */
 .header {
     background-color: #fff;
+    border-top: 3px solid #ffaa00;
+    border-bottom: 3px solid #ffaa00;
+
 }
 
 .right {
@@ -187,6 +190,8 @@ body {
     overflow: hidden;
     box-shadow: 0 0 10px #ccc;
     margin-top: 25px;
+    transition: all 0.2s ease-in-out;
+
 
 }
 
@@ -756,10 +761,59 @@ input[type=number]::-webkit-outer-spin-button {
     text-align: center;
     line-height: 18px;
 }
+#recaptcha-container > div > div {
+    display: block;
+    margin: auto;
+    margin-top: 30px;
+}
+#SeconddFrom {
+    display: none;
+}
+#Golden {
+    transform: translate(-50%,-50%);
+    font-weight: bold;
+    background-image: linear-gradient(
+     to right,
+     #ffaa00 0,
+            #cb9b51 22%, 
+     #f6e27a 45%,
+     #faf395 50%,
+     #f6e27a 55%,
+     #cb9b51 78%,
+     #ffaa00 100%
+     );
+    color:transparent;
+    -webkit-background-clip:text;
+    font-weight: 700;
+    /* text-shadow: 0 0 1px #cb9b51; */
+    font-size: 25px;
+}
+.nav-item {
+    transition: all 0.2s ease-in-out;
+}
+.nav-item:hover {
+    background-color: #f6e27a;
+    border-radius: 5px;
+    transition: all 0.2s ease-in-out;
+    color: #fff;
+}
+.nav-item:hover a {
+    transition: all 0.2s ease-in-out;
+    color: #fff!important;
+}
+.singlePro:hover {
+    transition: all 0.2s ease-in-out;
+    transform: scale(1.05);
+}
 
+.primary_product {
+    transition: all 0.2s ease-in-out;
+}
+.primary_product:hover {
+    transition: all 0.2s ease-in-out;
+    transform: scale(1.05);
 
-
-
+}
 
 
 

@@ -10,6 +10,10 @@ class OrderProduct extends Model
     use HasFactory;
 
     protected $guarded = [];
+    
+    protected $casts = [
+        "options" => "array"
+    ];
 
     public function order() {
         return $this->belongsTo(Order::class, 'order_id', 'id');

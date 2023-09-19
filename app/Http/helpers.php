@@ -1,5 +1,6 @@
 <?php
 
+use App\Models\Category;
 use App\Models\Product;
 use App\Models\SubProduct;
 use Illuminate\Support\Facades\Cache;
@@ -28,5 +29,10 @@ if(!function_exists('cartCount')) {
         if(Session::get('mycart')) {
             return count(Session::get('mycart'));
         }
+    }
+}
+if(!function_exists('allCats')) {
+    function allCats(){
+        return Category::where('category_id', NULL)->get();
     }
 }

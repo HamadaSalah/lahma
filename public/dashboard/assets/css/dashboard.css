@@ -155,10 +155,15 @@ button {
         display: block;
      }
 } */
+.myco {
+    background-color: #d00f25;
+    color: #fff;
+    padding: 1px 10px;
+    border-radius: 5px;
+    display: inline-block;
+    margin-bottom: 10px;
 
-
-
-
+}
 
 
 

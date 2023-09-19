@@ -3,6 +3,7 @@
 use App\Http\Controllers\Admin\CategoryController;
 use App\Http\Controllers\Admin\LoginController;
 use App\Http\Controllers\Admin\OptionsController;
+use App\Http\Controllers\Admin\OrdersController;
 use App\Http\Controllers\Admin\ProductController;
 use App\Http\Controllers\Admin\SubProductController;
 use Illuminate\Support\Facades\Route;
@@ -29,6 +30,7 @@ Route::prefix('admin')->middleware('auth:admin')->name('admin.')->group(function
     Route::resource('products', ProductController::class);
     Route::resource('subproducts', SubProductController::class);
     Route::resource('options', OptionsController::class);
+    Route::resource('orders', OrdersController::class);
     Route::get('categories/{id}', [CategoryController::class, 'categories'])->name('categories');
     // Route::get('subproducts/{id}', [ProductController::class, 'subproducts'])->name('subproducts');
     // Route::put('subproducts/{id}', [ProductController::class, 'subproducts'])->name('subproducts');

@@ -38,7 +38,7 @@
   <script src="{{asset('js/fancybox.min.js')}}"></script>
   <script src="{{asset('js/main.js')}}"></script>
 
-
+  @stack('myscripts')
 </body>
 
 </html>

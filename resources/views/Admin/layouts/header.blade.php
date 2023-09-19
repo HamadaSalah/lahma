@@ -10,7 +10,7 @@
     ABo Lahmaaa
   </title>
   <!--     Fonts and icons     -->
-  <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,600,700|Noto+Sans:300,400,500,600,700,800|PT+Mono:300,400,500,600,700" rel="stylesheet" />
+  {{-- <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,600,700|Noto+Sans:300,400,500,600,700,800|PT+Mono:300,400,500,600,700" rel="stylesheet" /> --}}
   <!-- Nucleo Icons -->
   <link href="{{asset('dashboard/assets/css/nucleo-icons.css')}}" rel="stylesheet" />
   <link href="{{asset('dashboard/assets/css/nucleo-svg.css')}}" rel="stylesheet" />
@@ -21,10 +21,10 @@
   <script src="{{ asset('dashboard/assets/js/jquery-1.11.1.min.js') }}"></script>
 
   <link id="pagestyle" href="{{asset('dashboard/assets/css/corporate-ui-dashboard.css?v=1.0.0')}}" rel="stylesheet" />
-  <link rel="preconnect" href="https://fonts.googleapis.com">
+  {{-- <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Tajawal:wght@300;400;500&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Tajawal:wght@300;400;500&display=swap" rel="stylesheet"> --}}
   <link id="pagestyle" href="{{asset('dashboard/assets/css/dashboard.css')}}" rel="stylesheet" />
   @stack('styles')
 </head>

@@ -1,7 +1,7 @@
 @extends('Admin.master')
 @section('title')
 
-<h4 class="text-white px-3" style="float: right">كل المنتجات</h4>
+<h4 class="text-white px-3" style="float: right">كل الطلبات</h4>
 <a href="{{Route('admin.products.create')}}">
     <button class="btn btn-primary" style="">أضافة منتج جديد  <i class="fa-regular fa-square-plus addBtn"></i>  </button>
 </a>
@@ -41,6 +41,8 @@
                         @method('DELETE')
                         <button class="btn btn-danger" type="submit">حذف </button>
                     </form>
+                    <a href="{{Route('admin.products.show', $product->id)}}"><button class="btn btn-primary">نسخ</button></a>
+
                 </td>
             </tr>            
         @endforeach
@@ -55,7 +57,7 @@
     <script>
         $(document).ready(function () {
             $('#files_list2').DataTable({
-
+                "order": [],
                 "language": {
                     "sProcessing": "جارٍ التحميل...",
                     "sLengthMenu": "أظهر _MENU_ مدخلات",

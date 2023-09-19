@@ -71,7 +71,7 @@
                                                 <div class="pro_d">
                                                     <p>{{$prodd->name}}</p>
                                                     <span>{{$prodd->name}}</span>
-                                                    <p>{{$prodd->price ?? $prodd->products[0]->price}} ريال</p>
+                                                    <p>{{$prodd->price ?? $prodd->products[0]->price ?? ''}} ريال</p>
                                                     <a href="{{Route('product', $prodd->id)}}"><i class="addToCard fa-solid fa-plus"></i></a>
                                                 </div>
                                             </div>

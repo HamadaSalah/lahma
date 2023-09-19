@@ -17,9 +17,10 @@ class ProductController extends Controller
      */
     public function index()
     {
-        return view('Admin.Product.index',[
-            'products' => Product::paginate(10)
-        ]);
+        
+        $products = Product::latest('created_at')->paginate(10);
+
+        return view('Admin.Product.index',compact('products'));
     }
 
     /**
@@ -84,9 +85,10 @@ class ProductController extends Controller
                 $outputArray[] = [
                     "name" => $name,
                     "price" => (int)$nestedproducts['prices'][$index],
-                    "description" => $nestedproducts['descriptions'][$index] // Remove the last two characters from description
+                    "description" => $nestedproducts['descriptions'][$index] 
                 ];
             }
+
             foreach($outputArray as $nested){
                 SubProduct::create([
                     'name' => $nested['name'],
@@ -106,7 +108,30 @@ class ProductController extends Controller
      */
     public function show(string $id)
     {
-        //
+
+        $pro = Product::findOrFail($id);
+        
+        $product = Product::create([
+            'name' => $pro->name,
+            'category_id' => $pro->category_id,
+            'price' => $pro->price ?? null,
+            'description' => $pro->description,
+            'img' =>  $pro->img,
+        ]);
+
+        if(isset($pro->options) && count($pro->options) > 0) {
+            $product->options()->attach($pro->options->pluck('id'));
+        }
+        foreach($pro->products as $sub) {
+            SubProduct::create([
+                'name' => $sub->name,
+                'price' => $sub->price,
+                'description' => $sub->description,
+                'product_id' =>   $product->id
+            ]);
+       }
+       return redirect()->route('admin.products.index')->with('success', 'تم اضافة المنتج بنجاح');
+
     }
 
     /**
@@ -115,7 +140,9 @@ class ProductController extends Controller
     public function edit(string $id)
     {
         $product = Product::findOrFail($id);
+
         $cats = Category::all();
+
         $options = Option::all();
 
         return view('admin.Product.edit', compact('product', 'cats', 'options'));

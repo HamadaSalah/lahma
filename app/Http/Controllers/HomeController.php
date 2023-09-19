@@ -57,7 +57,7 @@ class HomeController extends Controller
             'phone' => 'required'
         ]);
 
-        $user = User::create([
+        $user = User::firstOrCreate([
             'phone' => $request->phone
         ]);
         $myproducts = Session::get('mycart');
@@ -66,6 +66,7 @@ class HomeController extends Controller
 
         Auth::login($user);
         if(Session::get('mycart')) {
+
             $order = Order::create(['user_id' => auth()->user()->id]);
 
             foreach(Session::get('mycart') as $mycart) {
@@ -107,9 +108,13 @@ class HomeController extends Controller
                         'sub_product_id' => $mycart['sub_product_id'] ?? '',
                         'count' => $mycart['count'],
                         'order_id' => $order->id,
+                        'options' => $mycart['options'],
+
                     ]);
                 }
                 Session::forget('mycart');
+                //here send messssssssage SMSMSM
+
                 return redirect()->Route('index')->with('success', 'تم اضافة الطلب بنجاح');
             }
             else {

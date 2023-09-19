@@ -48,6 +48,7 @@
     <script>
         $(document).ready(function () {
             $('#files_list3').DataTable({
+                "order": [],
                 "aLengthMenu": [
                     [5, 10, 25, -1],
                     [5, 10, 25, "All"]

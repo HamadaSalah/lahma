@@ -28,3 +28,6 @@ Route::get('/categories', [App\Http\Controllers\HomeController::class, 'categori
 Route::get('/checkout', [App\Http\Controllers\HomeController::class, 'checkout'])->name('checkout');
 Route::get('/orders', [App\Http\Controllers\HomeController::class, 'orders'])->middleware('auth')->name('orders');
 
+
+
+ 
