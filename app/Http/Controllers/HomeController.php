@@ -105,8 +105,11 @@ class HomeController extends Controller
     }
 
     public function category($id) {
+        $cat = Category::findOrFail($id);
 
-        $products = Product::where('category_id', $id)->get();
+        $ids = $cat->child->pluck('id')->toArray();
+
+        $products = Product::whereIn('category_id', $ids)->orWhere('category_id', $id)->get();
         
         return view('category', compact('products'));
 
