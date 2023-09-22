@@ -22,7 +22,7 @@
                         <ul class="dropdown-menu dropdown-menu-dark" aria-labelledby="navbarDarkDropdownMenuLink">
                             @if (allCats())
                                 @foreach (allCats() as $caat)
-                                    <li><a class="dropdown-item" href="{{Route('categories')}}">{{$caat->name}}</a></li>
+                                    <li><a class="dropdown-item" href="{{Route('category', $caat->id)}}">{{$caat->name}}</a></li>
                                 @endforeach
                             @endif
                         </ul>

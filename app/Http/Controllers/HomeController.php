@@ -25,6 +25,8 @@ class HomeController extends Controller
         $cats = Category::with(['child', 'parent', 'products', 'child.products'])->where('category_id', NULL)->get();
         $products = Product::latest()->get();
 
+        // dd($cats);
+
         return view('home', compact('cats', 'products'));
     }
     /**
@@ -99,6 +101,14 @@ class HomeController extends Controller
         $cats = Category::with(['child', 'parent', 'products', 'child.products'])->where('category_id', NULL)->get();
         
         return view('categories', compact('cats'));
+
+    }
+
+    public function category($id) {
+
+        $products = Product::where('category_id', $id)->get();
+        
+        return view('category', compact('products'));
 
     }
 

@@ -32,7 +32,7 @@
         <nav>
             <div class="nav nav-tabs" id="nav-tab" role="tablist">
                 @foreach($cats as $mycat)
-                    <div class="col-lg-2 col-md-3 col-sm-6 col-4 nav-link {{ $loop->index == 0 ? 'active' : '' }}" id="nav-{{$mycat->id}}-tab" data-bs-toggle="tab"
+                    <div class="col-lg-2 col-md-1 col-sm-6 nav-link {{ $loop->index == 0 ? 'active' : '' }}" id="nav-{{$mycat->id}}-tab" data-bs-toggle="tab"
                         data-bs-target="#nav-{{$mycat->id}}" type="button" role="tab" aria-controls="nav-{{$mycat->id}}"
                         aria-selected="true">
                         <a>
@@ -47,8 +47,8 @@
         </nav>
 
         <div class="tab-content" id="nav-tabContent">
-            @foreach($cats as $mycatt)
-                <div class="tab-pane fade show <?php $ress = ($loop->index == 0) ? 'active' : ''; echo $ress;  ?>" id="nav-{{$mycatt->id}}" role="tabpanel" aria-labelledby="nav-{{$mycatt->id}}-tab">
+             @foreach($cats as $mycatt)
+                <div class="tab-pane fade<?php $ress = ($loop->index == 0) ? 'show active' : ''; echo $ress;?>" id="nav-{{$mycatt->id}}" role="tabpanel" aria-labelledby="nav-{{$mycatt->id}}-tab">
                     @if($mycatt->child)
                         <nav class="mysecondNav">
                             <div class="nav nav-tabs" id="nav-tab" role="tablist">
@@ -58,33 +58,55 @@
                                 @endforeach
                             </div>
                         </nav>       
-                    @endif
-                    <div class="tab-content" id="nav-tabContent">
-                        @if($mycatt->child)
-                        @foreach ($mycatt->child as $mychild)
-                            <div class="tab-pane fade show <?php $ress = ($loop->index == 0) ? 'active' : ''; echo $ress;  ?>" id="nav-{{$mychild->id}}" role="tabpanel" aria-labelledby="nav-{{$mychild->id}}-tab">
-                                <div class="row">
-                                    @foreach ($mychild->products as $prodd)
-                                        <div class="col-md-4">
-                                            <div class="primary_product">
-                                                <img src="{{asset('uploads/'.$prodd->img)}}" alt="">
-                                                <div class="pro_d">
-                                                    <p>{{$prodd->name}}</p>
-                                                    <span>{{$prodd->name}}</span>
-                                                    <p>{{$prodd->price ?? $prodd->products[0]->price ?? ''}} ريال</p>
-                                                    <a href="{{Route('product', $prodd->id)}}"><i class="addToCard fa-solid fa-plus"></i></a>
+                        <div class="tab-content" id="nav-tabContent">
+                            @if($mycatt->child)
+                            @foreach ($mycatt->child as $mychild)
+                                <div class="tab-pane fade show <?php $ress = ($loop->index == 0) ? 'active' : ''; echo $ress;  ?>" id="nav-{{$mychild->id}}" role="tabpanel" aria-labelledby="nav-{{$mychild->id}}-tab">
+                                    <div class="row">
+                                        @foreach ($mychild->products as $prodd)
+                                            <div class="col-md-4">
+                                                <div class="primary_product">
+                                                    <img src="{{asset('uploads/'.$prodd->img)}}" alt="">
+                                                    <div class="pro_d">
+                                                        <p>{{$prodd->name}}</p>
+                                                        <span>{{$prodd->name}}</span>
+                                                        <p>{{$prodd->price ?? $prodd->products[0]->price ?? ''}} ريال</p>
+                                                        <a href="{{Route('product', $prodd->id)}}"><i class="addToCard fa-solid fa-plus"></i></a>
+                                                    </div>
                                                 </div>
                                             </div>
-                                        </div>
-                                        
-                                    @endforeach
+                                            
+                                        @endforeach
+                                    </div>
                                 </div>
-                            </div>
-                        @endforeach
-                        @endif
-                    </div>
+                            @endforeach
+                            @endif
+                        </div>
+                    @endif
+                                        {{-- //if Has any product Directly --}}
+                                        <div class="row">
+                                            @foreach ($mycatt->products as $prodd2)
+                                                <div class="col-md-4">
+                                                    <div class="primary_product">
+                                                        <img src="{{asset('uploads/'.$prodd2->img)}}" alt="">
+                                                        <div class="pro_d">
+                                                            <p>{{$prodd2->name}}</p>
+                                                            <span>{{$prodd2->name}}</span>
+                                                            <p>{{$prodd2->price ?? $prodd2->products[0]->price ?? ''}} ريال</p>
+                                                            <a href="{{Route('product', $prodd2->id)}}"><i class="addToCard fa-solid fa-plus"></i></a>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                
+                                            @endforeach
+                                        </div>
+                    
+                                        {{-- //endif Has any product Directly --}}
+                    
                 </div>
             @endforeach
+
+
         </div>
     </div>
 </div>
