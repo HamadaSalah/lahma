@@ -23,9 +23,9 @@ class HomeController extends Controller
     public function index()
     {
         $cats = Category::with(['child', 'parent', 'products', 'child.products'])->where('category_id', NULL)->get();
-        $products = Product::latest()->get();
 
-        // dd($cats);
+        $products = Product::latest()->take(6)->get();
+
 
         return view('home', compact('cats', 'products'));
     }

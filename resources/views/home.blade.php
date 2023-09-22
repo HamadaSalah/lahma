@@ -178,7 +178,9 @@
             </div>
             
         @endforeach
-
+            <div class="text-center">
+                <button class="btn btn-primary mt-5">المزيد</button>
+            </div>
     </div>
 </div>
 </div>
