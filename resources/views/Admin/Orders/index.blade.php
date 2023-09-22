@@ -71,15 +71,16 @@
     <div class="modal-dialog">
       <div class="modal-content">
         <div class="modal-header">
-          <h5 class="modal-title" id="orderdetailsLabel">تفاصيل الطلب</h5>
+          <h5 class="modal-title" id="">تفاصيل الطلب</h5>
           <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
         </div>
         <div class="modal-body" id="Mydata">
-          <div id="number"></div>
-          <div id="productt"></div>
-          <div id="subs"></div>
-          <div id="opt" style="border: 1px solid #ccc;border-radius: 5px;padding: 10px;margin: 5px">
-            <p>الاضافات</p>
+
+          <div id="number" class="mb-1">
+
+          </div>
+
+          <div id="product-container">
 
           </div>
         </div>
@@ -114,19 +115,61 @@
                     // Assuming the API returns a JSON object
                     // You can update this part to format and display the data as needed
                     var modalData = JSON.stringify(data, null, 2);
-                    console.log(data);
-                    // Display the modal with the retrieved data
-                    $("#number").text("رقم الهاتف : " + data.user.phone);
-                    $.each(data.products, function(index, val) {
-                        $("#productt").append(`<li>${val.product.name} - العدد : ${val.count}</li>`);
-                        if(val.options) {
-                            $.each(val.options, function(index1, val1) {
-                                $("#opt").append(`<li>${index1} -  ${val1}</li>`);
-    
-                            });
 
+                    const productContainer = document.getElementById("product-container");
+                    const PhoneContainer = document.getElementById("number");
+
+                    PhoneContainer.textContent = `رقم الهاتف: ${data.user.phone}`;
+
+
+                    data.products.forEach((product) => {
+                        const productDiv = document.createElement("div");
+                        productDiv.classList.add("productView");
+
+                        const productNameDiv = document.createElement("div");
+                        productNameDiv.textContent = `${product.product.name}`;
+                        
+                        const productCountDiv = document.createElement("div");
+                        productCountDiv.textContent = `العدد : ${product.count}`;
+
+                        const optionsDiv = document.createElement("div");
+                        
+                        if (typeof product.options === 'object' && product.options !== null && Object.keys(product.options).length ) {
+                            console.log(Object.keys(product.options).length);
+                            const optionsTitleDiv = document.createElement("div");
+                            optionsTitleDiv.textContent = "الاضافات:";
+                            
+                            optionsDiv.appendChild(optionsTitleDiv);
+
+                            Object.keys(product.options).forEach((optionKey) => {
+                                const optionValue = product.options[optionKey];
+                                const optionDiv = document.createElement("div");
+                                optionDiv.textContent = `${optionKey}: ${optionValue}`;
+                                optionsDiv.appendChild(optionDiv);
+                            });
+                        } else {
+                            optionsDiv.textContent = ``;
                         }
+
+                        productDiv.appendChild(productNameDiv);
+                        productDiv.appendChild(productCountDiv);
+                        productDiv.appendChild(optionsDiv);
+
+                        productContainer.appendChild(productDiv);
                     });
+
+                    // Display the modal with the retrieved data
+                    // $("#number").text("رقم الهاتف : " + data.user.phone);
+                    // $.each(data.products, function(index, val) {
+                    //     $("#productt").append(`<li>${val.product.name} - العدد : ${val.count}</li>`);
+                    //     if(val.options) {
+                    //         $.each(val.options, function(index1, val1) {
+                    //             $("#opt").append(`<li>${index1} -  ${val1}</li>`);
+    
+                    //         });
+
+                    //     }
+                    // });
                     // $("#subs").text(modalData);
                     // $("#opt").text(modalData);
                     // $("#orderdetails").css("display", "block");

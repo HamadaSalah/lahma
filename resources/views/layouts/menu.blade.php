@@ -29,13 +29,13 @@
 
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="{{ Route('products') }}">المنتجات</a>
+                        <a class="nav-link" href="{{Route('products')}}">المنتجات</a>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link" href="#footer">حمل التطبيق</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="">اتصل بنا</a>
+                        <a class="nav-link" href="{{Route('contactus')}}">اتصل بنا</a>
                     </li>
                     <li class="nav-item">
                     </li>

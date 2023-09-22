@@ -23,7 +23,7 @@ class HomeController extends Controller
     public function index()
     {
         $cats = Category::with(['child', 'parent', 'products', 'child.products'])->where('category_id', NULL)->get();
-        $products = Product::latest()->take(10)->get();
+        $products = Product::latest()->get();
 
         return view('home', compact('cats', 'products'));
     }
@@ -38,6 +38,7 @@ class HomeController extends Controller
 
         return view('product', compact('product'));
     }
+
     //
     public function addToCard(Request $request) {
         $myproducts = Session::get('mycart') ?? [];
@@ -45,11 +46,13 @@ class HomeController extends Controller
         Session::put('mycart', $myproducts, 43200);
         return redirect()->route('mycard');
     }
+
     //
     public function mycard() {
         $carts = Session::get('mycart');
         return view('mycard', compact('carts'));
     }
+
     //
     public function mylogin(Request $request) {
 
@@ -81,13 +84,15 @@ class HomeController extends Controller
         }
         return redirect()->route('mycard');
     }
+    
     //
     public function products() {
 
-        $products = Product::latest()->take(10)->get();
+        $products = Product::latest()->get();
 
         return view('products', compact('products'));
     }
+
     //
     public function categories() {
 
@@ -96,9 +101,9 @@ class HomeController extends Controller
         return view('categories', compact('cats'));
 
     }
+
     //
     public function checkout() {
-
         if(isset(auth()->user()->id)) {
             $order = Order::create(['user_id' => auth()->user()->id]);
             if(Session::get('mycart')) {
@@ -106,9 +111,9 @@ class HomeController extends Controller
                     OrderProduct::create([
                         'product_id' => $mycart['product_id'],
                         'sub_product_id' => $mycart['sub_product_id'] ?? '',
-                        'count' => $mycart['count'],
+                        'count' => $mycart['count'] ?? 1,
                         'order_id' => $order->id,
-                        'options' => $mycart['options'],
+                        'options' => $mycart['options'] ?? [] 
 
                     ]);
                 }
@@ -125,12 +130,20 @@ class HomeController extends Controller
             return redirect()->Route('login');
         }
     }
+
     //
     public function orders() {
 
-        $orders = Order::where('user_id', auth()->user()->id)->get();
+        $orders = Order::where('user_id', auth()->user()->id)->latest()->get();
         
         return view('orders', compact('orders'));
+
+    }
+    //
+    public function contactus() {
+
+         
+        return view('contactus');
 
     }
 }

@@ -1,6 +1,7 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use Illuminate\Support\Facades\Session;
 
 /*
 |--------------------------------------------------------------------------
@@ -27,7 +28,17 @@ Route::get('/products', [App\Http\Controllers\HomeController::class, 'products']
 Route::get('/categories', [App\Http\Controllers\HomeController::class, 'categories'])->name('categories');
 Route::get('/checkout', [App\Http\Controllers\HomeController::class, 'checkout'])->name('checkout');
 Route::get('/orders', [App\Http\Controllers\HomeController::class, 'orders'])->middleware('auth')->name('orders');
+Route::get('/contactus', [App\Http\Controllers\HomeController::class, 'contactus'])->name('contactus');
 
 
+Route::get('removeElement/{id}', function($id) {
 
+
+    if(Session::get('mycart')) {
+        $myarr = Session::get('mycart');
+        unset($myarr[$id]);
+        Session::put('mycart', $myarr);
+    }
+
+});
  

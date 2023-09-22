@@ -18,7 +18,7 @@ class ProductController extends Controller
     public function index()
     {
         
-        $products = Product::latest('created_at')->paginate(10);
+        $products = Product::latest('created_at')->get();
 
         return view('Admin.Product.index',compact('products'));
     }
@@ -48,6 +48,7 @@ class ProductController extends Controller
         $request->validate([
             'name' => 'required',
             'img' => 'required',
+            'count' => 'required',
             'category_id' => 'required',
             'prices' => 'required_if:pro_type,yes',
             'names' => 'required_if:pro_type,yes',
@@ -67,6 +68,7 @@ class ProductController extends Controller
             'category_id' => $request->category_id,
             'price' => $request->price ?? null,
             'description' => $request->description,
+            'count' => $request->count,
             'img' => $img,
         ]);
         if(isset($request->options) && count($request->options) > 0) {
@@ -115,7 +117,6 @@ class ProductController extends Controller
             'name' => $pro->name,
             'category_id' => $pro->category_id,
             'price' => $pro->price ?? null,
-            'description' => $pro->description,
             'img' =>  $pro->img,
         ]);
 
@@ -144,8 +145,7 @@ class ProductController extends Controller
         $cats = Category::all();
 
         $options = Option::all();
-
-        return view('admin.Product.edit', compact('product', 'cats', 'options'));
+        return view('Admin.Product.edit', compact('product', 'cats', 'options'));
     }
 
     /**
@@ -175,13 +175,15 @@ class ProductController extends Controller
             $img = basename($storagePath);
         }
         $product = Product::findOrFail($id);
-
+        // dd($request->description);
         $product->update([
             'name' => $request->name,
             'category_id' => $request->category_id,
             'price' => $request->price ?? null,
             'description' => $request->description,
             'img' => $img ?? $product->img,
+            'count' => $request->count,
+
         ]);
         if(isset($request->options) && count($request->options) > 0) {
             $product->options()->sync($request->options);

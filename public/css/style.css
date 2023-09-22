@@ -54,7 +54,12 @@ body {
     border-bottom: 3px solid #ffaa00;
 
 }
-
+.MyOrr {
+    border: 1px solid #CCC;
+    padding: 20px 20px 0 20px;
+    border-radius: 5px;
+    margin-bottom: 20px;
+}
 .right {
     text-align: center;
     font-size: 16px;
@@ -795,11 +800,11 @@ input[type=number]::-webkit-outer-spin-button {
     background-color: #f6e27a;
     border-radius: 5px;
     transition: all 0.2s ease-in-out;
-    color: #fff;
+    color: #000;
 }
 .nav-item:hover a {
     transition: all 0.2s ease-in-out;
-    color: #fff!important;
+    color: #000!important;
 }
 .singlePro:hover {
     transition: all 0.2s ease-in-out;

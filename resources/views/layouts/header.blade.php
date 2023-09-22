@@ -53,7 +53,7 @@
   <link rel="canonical" href="">
   <link href="{{asset('css/googlegfont.css')}}" rel="stylesheet">
   <link rel="stylesheet" href="{{asset('css/fancybox.min.css')}}" />
-
+  @stack('styles')
 </head>
 
 <body>

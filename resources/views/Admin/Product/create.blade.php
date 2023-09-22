@@ -23,6 +23,10 @@
                 <label for="catimg" class="form-label">الصورة</label>
                 <input type="file" name="img" class="form-control" id="catimg">
             </div>
+            <div class="mb-3">
+                <label for="count" class="form-label">العدد</label>
+                <input type="number" name="count" class="form-control" id="count">
+            </div>
 
             <div class="mb-3">
                 <label for="catimg" class="form-label">القسم ؟</label>
@@ -56,6 +60,10 @@
             <div class="mb-3">
                 <label for="catname" class="form-label">تفاصيل المنتج</label>
                 <textarea name="description" class="form-control"></textarea>
+                <script>
+                    CKEDITOR.replace('description');
+                </script>
+              
             </div>
 
             <div class="mb-3">
@@ -77,6 +85,7 @@
 @push('styles')
     <link rel="stylesheet"
         href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-select/1.13.1/css/bootstrap-select.min.css">
+        <script src="https://cdn.ckeditor.com/4.16.2/standard/ckeditor.js"></script>
 
 @endpush
 @endsection
@@ -84,6 +93,7 @@
 الصفحة الرئيسية
 @endsection
 @push('scripts')
+
     <script src="https://preview.colorlib.com/theme/bootstrap/multiselect-04/js/popper.js"></script>
     <script src="https://preview.colorlib.com/theme/bootstrap/multiselect-04/js/bootstrap.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-select/1.13.1/js/bootstrap-select.min.js"></script>

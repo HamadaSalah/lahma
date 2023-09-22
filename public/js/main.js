@@ -42,6 +42,22 @@ $(document).ready(function() {
 
   $(".number-input button").attr("disabled", true);
 
+  $('.RemoveElement').on('click', function() {
+    var myid = $(this).data('id') ?? 0;
+    $(this).closest('.OneCart').css({"display":"none"});
+    console.log($(this).closest('.OneCart'));
+    $.ajax({
+    type: 'GET',
+    url: `removeElement/${myid}`,
+    success: function (data) {
+      location.reload();
+    },
+    error: function (data) {
+
+    }
+});
+
+});
 
 
 

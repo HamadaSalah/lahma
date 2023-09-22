@@ -15,7 +15,7 @@
     <form action="{{Route('checkout')}}" method="GET">
         @csrf
         <div class="container py-5 h-100">
-            <div class="row d-flex justify-content-center align-items-center h-100">
+            <div class="row  justify-content-center align-items-center h-100">
                 <div class="col-12">
                     @if($carts)
                         <div class="card card-registration card-registration-2" style="border-radius: 15px;">
@@ -27,7 +27,7 @@
                                                 $total = 0;
                                             @endphp
                                             {{-- @dd($carts) --}}
-                                            @foreach($carts as $cart)
+                                            @foreach($carts as $key => $cart)
                                             <?php 
                                             if(isset($cart['subProduct'])) {
                                                 $total = $total +( getPrice($cart['subProduct'])*$cart['count']);
@@ -39,7 +39,7 @@
                                             ?>
     
                                                 <div
-                                                    class="row mb-4 d-flex justify-content-between align-items-center OneCart">
+                                                    class="row mb-4   justify-content-between align-items-center OneCart">
                                                     <div class="col-md-2 col-lg-2 col-xl-2">
                                                         <img src="{{ asset("uploads/".$cart['product_img']) }}"
                                                             class="img-fluid rounded-3" style="max-height: 100px">
@@ -48,7 +48,7 @@
                                                         <h6 class="text-muted">
                                                             {{ $cart['product_name'] }}</h6>
                                                     </div>
-                                                    <div class="col-md-3 col-lg-3 col-xl-2 d-flex">
+                                                    <div class="col-md-3 col-lg-3 col-xl-2  ">
                                                         العدد
                                                         <input id="form1" min="0" name="quantity"
                                                             value="{{ $cart['count'] ?? 1 }}"
@@ -68,7 +68,7 @@
                                                             ريال </h6>
                                                     </div>
                                                     <div class="col-md-1 col-lg-1 col-xl-1 text-end">
-                                                        <a href="#!" class="text-muted"><i class="fas fa-times"></i></a>
+                                                        <a href="#!" class="text-muted RemoveElement" data-id="{{$key}}"><i class="fas fa-times"></i></a>
                                                     </div>
                                                 </div>
                                             @endforeach
@@ -94,6 +94,5 @@
     </form>
 </section>
 @push('myscripts')
-    
 @endpush
 @endsection
