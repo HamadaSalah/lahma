@@ -19,12 +19,12 @@
 <div class="pro_dd mt-5 mb-5 ">
     <div class="container">
         <div class="row">
-            <div class="col-md-6">
+            <div class="col-md-4">
                 <img src="{{ asset('uploads/'.$product->img) }}"
                     style="width: 100%;margin: auto;display: block;text-align: center;border-radius: 5px"
                     class="img-responsive" alt="">
             </div>
-            <div class="col-md-6">
+            <div class="col-md-8">
                 <div class="pro_name">
                     <h3>نصف خروف نعيمي</h3>
                     <span>التصنيف -{{ $product->category->name }}</span>
@@ -36,7 +36,7 @@
                 </div>
                 <div class="pro_tit">
                     <p>
-                        {{ $product->description }}
+                        {!! $product->description !!}
                     </p>
                 </div>
             </div>
@@ -120,15 +120,54 @@
     <div class="tootal">
         <div class="container">
             <div class="row">
+                @if ($product->price)
+                    <div class="text-center">
+                        <div class="Price">
+                            <div>
+                                <div class="NameandSelect">
+                                     <h5 style="padding-right: 20px;">{{$product->name}}</h5>
+                                </div>
+                             </div>
+                            <div>
+                                <h5 style="color: crimson;line-height: 50px;"> <input type="number" disabled value="{{$product->price}}" class="disinput MyPrice"> ر.س</h5>
+                            </div>
+                            <div>
+                                <div class="number-input">
+                                    <button class="minus" type="button">-</button>
+
+                                    <input type="number" class="InMuber option-input radio" value="1" min="1" max="100"
+                                        step="1" name="count">
+                                    <button class="plus"  type="button">+</button>
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
+                @endif
                 <h5>المبلغ الإجمالي</h5>
                 <h6><input type="number" id="totalPrice" disabled style="background: transparent;border: 0;width: 100px;text-align: left;font-weight: bold" value="{{$product->price ?? 0}}"></span> ر.س</h6>
                 <button class="btn btn-success" type="submit">إضافة للسلة</button>
+                
                 <span>ملاحظة: السعر شامل الذبح والتقطيع والتغليف والتوصيل وغير شامل الضريبة</span>
             </div>
         </div>
     </div>
 </form>
-<!-- This is end for details -->
-
-
+    <!-- This is end for details -->
+    @if ($product->price)
+        @push('myscripts')
+            <script>
+                $(document).ready(function(){
+                    $(".number-input button").attr("disabled", false);
+                });
+            </script>
+        @endpush
+@endif
+@push('styles')
+    <style>
+        .plus, .minus{
+            width: 30px!important
+        }
+    </style>
+@endpush
 @endsection

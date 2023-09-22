@@ -289,7 +289,6 @@ body {
 }
 
 .pro_dd {
-    padding: 0 30px;
     display: block;
     position: relative;
     padding: 80px 150px;
@@ -332,7 +331,7 @@ body {
 }
 
 .pro_tit p {
-    padding: 30px 0 30px 30px;
+    padding: 0;
 }
 
 .maz {
@@ -838,7 +837,18 @@ input[type=number]::-webkit-outer-spin-button {
 
 
 @media screen and (max-width: 796px) {
-
+    .pro_dd {
+        padding: 10px;
+    }
+    .pro_tit p {
+        padding:  0;
+    }
+    .tootal {
+        padding: 0;
+    }
+    .tootal span {
+        margin-bottom: 40px;
+    }
     .nav-item .nav-link,
     .navbar-light .navbar-nav .nav-link,
     .navbar-light .navbar-nav .nav-link.active,

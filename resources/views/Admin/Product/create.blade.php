@@ -7,7 +7,7 @@
 @section('content')
 <div class="card">
     <div class="card-header">
-        <h3>اضافة قسم جديد</h3>
+        <h3>اضافة منتج جديد</h3>
     </div>
     <div class="card-body">
         <form method="POST" action="{{ Route('admin.products.store') }}"

@@ -52,7 +52,7 @@ class HomeController extends Controller
     //
     public function mycard() {
         $carts = Session::get('mycart');
-        return view('mycard', compact('carts'));
+         return view('mycard', compact('carts'));
     }
 
     //

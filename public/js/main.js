@@ -29,7 +29,7 @@ $(document).ready(function() {
         $myval = $(this).parent().find('input').val();
 
         $price = $(this).closest('.Price').find('.MyPrice').val();
-    
+     
         $count = $(this).closest('.Price').find('.InMuber').val();
         
         console.log($price*$count);

@@ -13,9 +13,9 @@ if (! function_exists('getPrice')) {
             return $product->price;
         }
         else {
-            $product2 = SubProduct::find($id);
+            $product2 = Product::find($id);
             if($product2) {
-                return $product->price;
+                return $product2->price;
             }
             else {
                 return 0;

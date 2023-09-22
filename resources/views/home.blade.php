@@ -179,7 +179,7 @@
             
         @endforeach
             <div class="text-center">
-                <button class="btn btn-primary mt-5">المزيد</button>
+                <a href="{{Route('products')}}"><button class="btn btn-primary mt-5">المزيد</button></a>
             </div>
     </div>
 </div>

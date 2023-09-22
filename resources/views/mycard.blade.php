@@ -28,13 +28,12 @@
                                             @endphp
                                             {{-- @dd($carts) --}}
                                             @foreach($carts as $key => $cart)
-                                            <?php 
+                                             <?php 
                                             if(isset($cart['subProduct'])) {
-                                                $total = $total +( getPrice($cart['subProduct'])*$cart['count']);
-
+                                                $total = $total +( getPrice($cart['subProduct'] ?? $cart['product_id'])*$cart['count']);
                                             }
                                             else {
-                                                $total = $total +( getPrice($cart['product_id']));
+                                                 $total = $total +( getPrice($cart['product_id'])*$cart['count']);
                                             }
                                             ?>
     
@@ -62,7 +61,7 @@
                                                                 
                                                             {{ getPrice($cart['subProduct'])*$cart['count'] ?? getPrice($cart['product_id'])*$cart['count'] }}
                                                             @else
-                                                            {{ getPrice($cart['product_id']) }}
+                                                            {{ getPrice($cart['product_id'])*$cart['count'] }}
 
                                                             @endif
                                                             ريال </h6>
