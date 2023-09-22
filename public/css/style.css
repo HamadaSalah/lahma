@@ -806,6 +806,9 @@ input[type=number]::-webkit-outer-spin-button {
     transition: all 0.2s ease-in-out;
     color: #000!important;
 }
+.dropdown-menu-dark {
+    background-color: #fff;
+}
 .singlePro:hover {
     transition: all 0.2s ease-in-out;
     transform: scale(1.05);
