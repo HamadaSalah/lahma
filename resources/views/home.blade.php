@@ -35,7 +35,7 @@
                     <div class="col-lg-2 col-md-1 col-sm-6 nav-link {{ $loop->index == 0 ? 'active' : '' }}" id="nav-{{$mycat->id}}-tab" data-bs-toggle="tab"
                         data-bs-target="#nav-{{$mycat->id}}" type="button" role="tab" aria-controls="nav-{{$mycat->id}}"
                         aria-selected="true">
-                        <a>
+                        <a style="margin: 10px;display: block;">
                             <div class="singlePro">
                                 <img src="{{asset('uploads/'.$mycat->img)}}" alt="">
                                 <p>{{$mycat->name}} </p>
@@ -53,7 +53,7 @@
                         <nav class="mysecondNav">
                             <div class="nav nav-tabs" id="nav-tab" role="tablist">
                                 @foreach ($mycatt->child as $child)
-                                    <button class="nav-link <?php $ress = ($loop->index == 0) ? 'active' : ''; echo $ress;  ?>" id="nav-{{$child->id}}-tab" data-bs-toggle="tab" data-bs-target="#nav-{{$child->id}}"
+                                    <button class="nav-link mylinnkss <?php $ress = ($loop->index == 0) ? 'active' : ''; echo $ress;  ?>" id="nav-{{$child->id}}-tab" data-bs-toggle="tab" data-bs-target="#nav-{{$child->id}}"
                                         type="button" role="tab" aria-controls="nav-{{$child->id}}" aria-selected="true">{{$child->name}}</button>
                                 @endforeach
                             </div>
