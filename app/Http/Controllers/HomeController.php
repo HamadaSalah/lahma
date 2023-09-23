@@ -110,12 +110,12 @@ class HomeController extends Controller
 
     public function category($id) {
         $cat = Category::findOrFail($id);
-
+        $name = $cat->name;
         $ids = $cat->child->pluck('id')->toArray();
 
         $products = Product::whereIn('category_id', $ids)->orWhere('category_id', $id)->get();
         
-        return view('category', compact('products'));
+        return view('category', compact('products', 'name'));
 
     }
 

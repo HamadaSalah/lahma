@@ -5,7 +5,7 @@
     <div class="container">
         <div class="row">
             <div class="intro">
-                <h1 style="text-align: center;">منتجاتنـــــــــــــــــــا
+                <h1 style="text-align: center;">{{$name}}
                 </h1>
             </div>
         </div>
