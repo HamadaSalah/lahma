@@ -3,7 +3,8 @@
         <div class="container">
             <div class="logo">
                 <a class="navbar-brand m-bold" href="{{ Route('index') }}" style="font-weight: bold;">
-                    <span id="Golden">الذهبية</span> <span style="color: #000;font-size: 25px">للذبائح</span></a>
+                    <img src="{{asset('img/logo.png')}}" alt="" width="200px">    
+                </a>
             </div>
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
                 data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false"

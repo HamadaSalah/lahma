@@ -4,9 +4,7 @@
     <div class="container">
         <div class="row">
             <div class="intro">
-                <h1>نصف خروف
-                    <br />
-                    نعيمي
+                <h1>{{$product->name}} 
                 </h1>
             </div>
             <div class="search">
@@ -26,7 +24,7 @@
             </div>
             <div class="col-md-8">
                 <div class="pro_name">
-                    <h3>نصف خروف نعيمي</h3>
+                    <h3>{{$product->name}} </h3>
                     <span>التصنيف -{{ $product->category->name }}</span>
                     <span class="mypprice">
                         @if ($product->price)

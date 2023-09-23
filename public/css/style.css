@@ -340,8 +340,13 @@ body {
     padding: 50px;
     border-radius: 10px;
     margin-top: 30px;
-}
+    transition: all 0.3s ease-in-out;
 
+}
+.maz:hover{
+    transform: scale(1.1);
+    transition: all 0.3s ease-in-out;
+}
 .maz p {
     font-weight: bold;
     margin-top: 20px;
@@ -835,7 +840,7 @@ input[type=number]::-webkit-outer-spin-button {
 
 
 
-
+/* MOBILEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEE؛ */
 @media screen and (max-width: 796px) {
     .pro_dd {
         padding: 10px;

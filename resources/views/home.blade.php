@@ -60,7 +60,7 @@
                         </nav>       
                         <div class="tab-content" id="nav-tabContent">
                             @if($mycatt->child)
-                            @foreach ($mycatt->child as $mychild)
+                            @foreach ($mycatt->child->take(6) as $mychild)
                                 <div class="tab-pane fade show <?php $ress = ($loop->index == 0) ? 'active' : ''; echo $ress;  ?>" id="nav-{{$mychild->id}}" role="tabpanel" aria-labelledby="nav-{{$mychild->id}}-tab">
                                     <div class="row">
                                         @foreach ($mychild->products as $prodd)
@@ -83,26 +83,28 @@
                             @endif
                         </div>
                     @endif
-                                        {{-- //if Has any product Directly --}}
-                                        <div class="row">
-                                            @foreach ($mycatt->products as $prodd2)
-                                                <div class="col-md-4">
-                                                    <div class="primary_product">
-                                                        <img src="{{asset('uploads/'.$prodd2->img)}}" alt="">
-                                                        <div class="pro_d">
-                                                            <p>{{$prodd2->name}}</p>
-                                                            <span>{{$prodd2->name}}</span>
-                                                            <p>{{$prodd2->price ?? $prodd2->products[0]->price ?? ''}} ريال</p>
-                                                            <a href="{{Route('product', $prodd2->id)}}"><i class="addToCard fa-solid fa-plus"></i></a>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                                
-                                            @endforeach
-                                        </div>
-                    
-                                        {{-- //endif Has any product Directly --}}
-                    
+                    {{-- if Has any product Directly --}}
+                    <div class="row">
+                        @foreach ($mycatt->products->take(6) as $prodd2)
+                            <div class="col-md-4">
+                                <div class="primary_product">
+                                    <img src="{{asset('uploads/'.$prodd2->img)}}" alt="">
+                                    <div class="pro_d">
+                                        <p>{{$prodd2->name}}</p>
+                                        <span>{{$prodd2->name}}</span>
+                                        <p>{{$prodd2->price ?? $prodd2->products[0]->price ?? ''}} ريال</p>
+                                        <a href="{{Route('product', $prodd2->id)}}"><i class="addToCard fa-solid fa-plus"></i></a>
+                                    </div>
+                                </div>
+                            </div>
+                        @endforeach
+                        @if ($mycatt->products->count() > 6)
+                            <div class="text-center">
+                                <a href="{{Route('category', $mycatt->id)}}"><button class="btn btn-primary">المزيد</button></a>
+                            </div>
+                        @endif
+                    </div>
+                    {{-- end if Has any product Directly --}}
                 </div>
             @endforeach
 
