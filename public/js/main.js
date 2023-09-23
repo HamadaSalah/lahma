@@ -1,4 +1,10 @@
 $(document).ready(function() {
+
+
+ 
+
+
+
   const inputNumber = $('#input-number');
 
   $('.minus').on('click', function() {
@@ -63,9 +69,13 @@ $(document).ready(function() {
 
 
   $('.SelectSUb').on('click', function() {
+
     $('.Price').find('button').attr("disabled", true);
+
     $(this).parent().parent().parent().parent(3).parent().find('button').attr("disabled", false);
+
     $(this).parent().parent().parent().parent(3).parent().find('input').attr("disabled", false);
+    
     console.log($('Price').find('button').html() );
   });
 

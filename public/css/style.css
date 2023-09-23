@@ -830,7 +830,18 @@ input[type=number]::-webkit-outer-spin-button {
 
 }
 
-
+.carousell {
+    width: 80%;
+    margin: 0 auto;
+}
+/* Style your carousell images */
+.carousell img {
+    width: 100%;
+    height: auto;
+}
+.carousel-item img {
+    cursor: pointer
+}
 
 
 

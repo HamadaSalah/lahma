@@ -143,7 +143,7 @@
                     </div>
                 @endif
                 <h5>المبلغ الإجمالي</h5>
-                <h6><input type="number" id="totalPrice" disabled style="background: transparent;border: 0;width: 100px;text-align: left;font-weight: bold" value="{{$product->price ?? 0}}"></span> ر.س</h6>
+                <h6 style="font-size: 30px"><input type="number" id="totalPrice" disabled style="background: transparent;border: 0;width: 70px;text-align: center;font-weight: bold" value="{{$product->price ?? 0}}"></span> ر.س</h6>
                 <button class="btn btn-success" type="submit">إضافة للسلة</button>
                 
                 <span>ملاحظة: السعر شامل الذبح والتقطيع والتغليف والتوصيل وغير شامل الضريبة</span>

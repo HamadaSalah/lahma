@@ -1,7 +1,29 @@
 @extends('layouts.app')
 
 @section('content')
-<div class="slider">
+@if ($sliders)
+    <div class="myslid">
+    <div id="BigCarousel" class="carousel slide" data-bs-ride="carousel">
+        <div class="carousel-inner">
+            @foreach ($sliders as $slid)
+                <div class="carousel-item <?php if($loop->index == 0 ) echo "active"; ?>">
+                    <img src="{{asset('uploads/'.$slid->img)}}" class="d-block w-100" alt="...">
+                </div>           
+                     
+            @endforeach
+        </div>
+        <button class="carousel-control-prev" type="button" data-bs-target="#BigCarousel" data-bs-slide="prev">
+            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+            <span class="visually-hidden">Previous</span>
+        </button>
+        <button class="carousel-control-next" type="button" data-bs-target="#BigCarousel" data-bs-slide="next">
+            <span class="carousel-control-next-icon" aria-hidden="true"></span>
+            <span class="visually-hidden">Next</span>
+        </button>
+        </div>
+    </div>    
+@endif
+{{-- <div class="slider">
 <div class="container">
     <div class="row">
         <div class="intro">
@@ -16,14 +38,11 @@
             <div class="searchdiv">
                 <input type="text" placeholder="ابحث عـــــن المنــتــجات">
                 <i class="searchiconn fa-solid fa-magnifying-glass"></i>
-                <!-- <svg xmlns="http://www.w3.org/2000/svg" height="1em" viewBox="0 0 512 512"> 
-        <path d="M416 208c0 45.9-14.9 88.3-40 122.7L502.6 457.4c12.5 12.5 12.5 32.8 0 45.3s-32.8 12.5-45.3 0L330.7 376c-34.4 25.2-76.8 40-122.7 40C93.1 416 0 322.9 0 208S93.1 0 208 0S416 93.1 416 208zM208 352a144 144 0 1 0 0-288 144 144 0 1 0 0 288z"/>
-        </svg> -->
             </div>
         </div>
     </div>
 </div>
-</div>
+</div> --}}
 <div class="products">
 <div class="container">
     <h1>المنــتــجات</h1>
@@ -225,5 +244,20 @@
     </div>
 </div>
 </div>
+@push('styles')
+<link rel="stylesheet" href="https://unpkg.com/swiper/swiper-bundle.min.css">
 
+@endpush
+@push('myscripts')
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.touchswipe/1.6.19/jquery.touchSwipe.min.js"></script>
+    <script>
+$(".carousel").swipe({
+                swipe: function (event, direction, distance, duration, fingerCount, fingerData) {
+                    if (direction == 'left') $(this).carousel('next');
+                    if (direction == 'right') $(this).carousel('prev');
+                },
+                allowPageScroll: "vertical" 
+            });
+            </script>
+@endpush
 @endsection

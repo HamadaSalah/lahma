@@ -7,6 +7,7 @@ use App\Models\Category;
 use App\Models\Order;
 use App\Models\OrderProduct;
 use App\Models\Product;
+use App\Models\Slider;
 use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
@@ -26,8 +27,11 @@ class HomeController extends Controller
 
         $products = Product::latest()->take(6)->get();
 
+        $sliders = Slider::latest()->get();
 
-        return view('home', compact('cats', 'products'));
+
+
+        return view('home', compact('cats', 'products', 'sliders'));
     }
     /**
      * Show the application dashboard.

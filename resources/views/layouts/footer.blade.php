@@ -33,7 +33,7 @@
   <div class="right">All Right Reserved &copy; 2023</div>
   <script src="{{asset('js/fa.min.js')}}"></script>
   <script src="{{asset('js/bootstrap.bundle.js')}}"></script>
-  <script src="{{asset('js/code.jquery.com_jquery-3.5.1.min.js')}}"></script>
+  <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
   <script src="{{asset('js/unpkg.com_isotope-layout@3.0.4_dist_isotope.pkgd.min.js')}}"></script>
   <script src="{{asset('js/fancybox.min.js')}}"></script>
   <script src="{{asset('js/main.js')}}"></script>
