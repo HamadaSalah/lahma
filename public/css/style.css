@@ -105,7 +105,10 @@ body {
     text-align: center;
     margin: auto;
     margin-top: 50px;
-
+    margin-top: -90px;
+    display: block;
+    clear: both;
+    margin-bottom: 100px;
 }
 
 .searchdiv {
@@ -123,7 +126,7 @@ body {
 .searchdiv input[type="text"] {
     width: 80%;
     line-height: 100%;
-    height: 100%;
+    height: 50px;
     border: 0;
 }
 
@@ -162,7 +165,7 @@ body {
     position: absolute;
     left: 12px;
     top: 12px;
-    color: #8f8f8f;
+    color: #c0c0c0;
 }
 
 .flightImg {
@@ -270,7 +273,13 @@ body {
     object-fit: cover;
 
 }
-
+.primary_product button {
+    position: absolute;
+    left: 20px;
+    top: calc(50% - 15px);
+    border: 0;
+    background: 0;
+}
 .primary_product p {
     margin: 0;
     font-weight: bold;
@@ -306,9 +315,6 @@ body {
 }
 
 .addToCard {
-    position: absolute;
-    left: 20px;
-    top: calc(50% - 15px);
     font-size: 22px;
     background: #d00f25;
     border-radius: 50%;
@@ -332,6 +338,7 @@ body {
 
 .pro_tit p {
     padding: 0;
+    font-size: 18px;
 }
 
 .maz {
@@ -443,7 +450,9 @@ body {
     margin-bottom: 0;
     font-weight: bold;
 }
-
+.Price span {
+    padding-right: 30px;
+}
 .Price div {
     display: flex;
     flex: auto;
@@ -516,18 +525,16 @@ input[type=number]::-webkit-outer-spin-button {
     margin: 0;
 }
 
-.number-input button:hover {
-    background-color: #d0d0d0;
-}
-
+ 
 .number-input button:active {
-    background-color: #b0b0b0;
+    background: #fff;
 }
-
 .py {
     top: 5px;
 }
-
+.NameandSelect .py {
+    right: -20px;
+}
 .py .option-input {
     -webkit-appearance: none;
     -moz-appearance: none;
@@ -569,9 +576,9 @@ input[type=number]::-webkit-outer-spin-button {
 }
 
 .py .option-input:checked::after {
-    -webkit-animation: click-wave 0.65s;
+    /* -webkit-animation: click-wave 0.65s;
     -moz-animation: click-wave 0.65s;
-    animation: click-wave 0.65s;
+    animation: click-wave 0.65s; */
     background: #d00f25;
     content: '';
     display: block;
@@ -842,6 +849,9 @@ input[type=number]::-webkit-outer-spin-button {
 .carousel-item img {
     cursor: pointer
 }
+.Price>div:first-child {
+    padding-right: 35px;
+}
 
 
 
@@ -965,7 +975,7 @@ input[type=number]::-webkit-outer-spin-button {
     }
 
     .pro_d {
-        padding: 0;
+        padding: 0 10px;
     }
 
     .pro_name {
@@ -974,5 +984,44 @@ input[type=number]::-webkit-outer-spin-button {
 
     .slider.productSlider {
         overflow: hidden;
+    }
+    .search {
+        padding: 10px;
+    }
+    .searchdiv {
+        box-shadow: 0 0 5px #CCC;
+    }
+    .search {
+        margin: 20px 0;
+    }
+    .products{
+        padding-top: 10px;
+    }
+    .nav-tabs .nav-item.show .nav-link, .nav-tabs .nav-link.active, .nav-tabs .nav-link {
+        width: 33.3%;
+    }
+    .singlePro {
+        height: 120px;
+    }
+    .col-lg-2.col-md-1.col-sm-4.nav-link {
+        padding: 5px;
+    }
+    .col-lg-2.col-md-1.col-sm-4.nav-link a{
+        padding: 0!important;
+        margin: 0!important;
+    }
+    .singlePro p {
+        line-height: 25px;
+    }
+    .Price {
+        display: block;
+        padding-top: 13px;
+        padding-bottom: 19px;
+    }
+    .Price>div:first-child {
+        padding-right: 0;
+    }
+    .NameandSelect .py {
+        right: 0;
     }
 }

@@ -30,6 +30,7 @@ Route::get('/category/{id}', [App\Http\Controllers\HomeController::class, 'categ
 Route::get('/checkout', [App\Http\Controllers\HomeController::class, 'checkout'])->name('checkout');
 Route::get('/orders', [App\Http\Controllers\HomeController::class, 'orders'])->middleware('auth')->name('orders');
 Route::get('/contactus', [App\Http\Controllers\HomeController::class, 'contactus'])->name('contactus');
+Route::post('/search', [App\Http\Controllers\HomeController::class, 'search'])->name('search');
 
 
 Route::get('removeElement/{id}', function($id) {

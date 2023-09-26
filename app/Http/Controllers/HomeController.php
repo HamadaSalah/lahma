@@ -25,7 +25,7 @@ class HomeController extends Controller
     {
         $cats = Category::with(['child', 'parent', 'products', 'child.products'])->where('category_id', NULL)->get();
 
-        $products = Product::latest()->take(6)->get();
+        $products = Product::whereIn('id', [1,2,16,52,17,18])->get();
 
         $sliders = Slider::latest()->get();
 
@@ -161,6 +161,18 @@ class HomeController extends Controller
 
          
         return view('contactus');
+
+    }
+    //
+    public function search(Request $request) {
+
+        $request->validate([
+            'search' => 'required'
+        ]);
+
+        $products = Product::where('name', 'LIKE', '%'.$request->search.'%')->get();
+
+        return view('search', compact('products'));
 
     }
 }

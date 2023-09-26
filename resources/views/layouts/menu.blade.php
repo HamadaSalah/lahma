@@ -5,6 +5,7 @@
                 <a class="navbar-brand m-bold" href="{{ Route('index') }}" style="font-weight: bold;">
                     <img src="{{asset('img/logo.png')}}" alt="" width="200px">    
                 </a>
+                
             </div>
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
                 data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false"
@@ -40,9 +41,13 @@
                     </li>
                     <li class="nav-item">
                     </li>
+                    @guest
                     <li class="nav-item">
-                        <a class="nav-link">EN</a>
+                        <a class="nav-link" href="{{Route('login')}}">تسجيل الدخول</a>
                     </li>
+                        
+                    @endguest
+
                     @auth
                         <li class="nav-item dropdown">
                             <a class="nav-link dropdown-toggle" href="#" id="navbarDarkDropdownMenuLink" role="button"

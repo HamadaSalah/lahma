@@ -23,6 +23,18 @@
         </div>
     </div>    
 @endif
+<div class="search">
+    <div class="searchdiv">
+        <form action="{{Route('search')}}" method="POST">
+            @csrf
+            <input type="text" name="search" placeholder="ابحث عـــــن المنــتــجات">
+            <button type="submit" style="border: 0;background: 0;">
+                <i class="searchiconn fa-solid fa-magnifying-glass"></i>
+            </button>
+        </form>
+    </div>
+</div>
+
 {{-- <div class="slider">
 <div class="container">
     <div class="row">
@@ -51,7 +63,7 @@
         <nav>
             <div class="nav nav-tabs" id="nav-tab" role="tablist">
                 @foreach($cats as $mycat)
-                    <div class="col-lg-2 col-md-1 col-sm-6 nav-link {{ $loop->index == 0 ? 'active' : '' }}" id="nav-{{$mycat->id}}-tab" data-bs-toggle="tab"
+                    <div class="col-lg-2 col-md-1 col-sm-4 nav-link {{ $loop->index == 0 ? 'active' : '' }}" id="nav-{{$mycat->id}}-tab" data-bs-toggle="tab"
                         data-bs-target="#nav-{{$mycat->id}}" type="button" role="tab" aria-controls="nav-{{$mycat->id}}"
                         aria-selected="true">
                         <a style="margin: 10px;display: block;">
@@ -90,7 +102,7 @@
                                                         <p>{{$prodd->name}}</p>
                                                         <span>{{$prodd->name}}</span>
                                                         <p>{{$prodd->price ?? $prodd->products[0]->price ?? ''}} ريال</p>
-                                                        <a href="{{Route('product', $prodd->id)}}"><i class="addToCard fa-solid fa-plus"></i></a>
+                                                        <a href="{{Route('product', $prodd->id)}}"><button data-bs-toggle="tooltip" data-bs-placement="top" title="Tooltip on top"><i class="addToCard fa-solid fa-plus" ></i></button></a>
                                                     </div>
                                                 </div>
                                             </div>
@@ -112,7 +124,8 @@
                                         <p>{{$prodd2->name}}</p>
                                         <span>{{$prodd2->name}}</span>
                                         <p>{{$prodd2->price ?? $prodd2->products[0]->price ?? ''}} ريال</p>
-                                        <a href="{{Route('product', $prodd2->id)}}"><i class="addToCard fa-solid fa-plus"></i></a>
+                                        <a href="{{Route('product', $prodd2->id)}}">
+                                            <button data-bs-toggle="tooltip" data-bs-placement="top" title="Tooltip on top"><i class="addToCard fa-solid fa-plus"></i></button></a>
                                     </div>
                                 </div>
                             </div>
@@ -193,7 +206,11 @@
                         <p>{{$prod->name}}</p>
                         {{-- <span>8 - 11 كيلو</span> --}}
                         <p>{{$prod->price ?? $prod->products[0]->price ?? ''}} ريال</p>
-                        <a href="{{Route('product', $prod->id)}}"><i class="addToCard fa-solid fa-plus"></i></a>
+                        <a href="{{Route('product', $prod->id)}}">
+                            <button data-bs-toggle="tooltip" data-bs-placement="top" title="Tooltip on top">
+                            <i class="addToCard fa-solid fa-plus"></i>
+                            </button>
+                        </a>
                     </div>
                 </div>
             </div>
@@ -250,7 +267,14 @@
 @endpush
 @push('myscripts')
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.touchswipe/1.6.19/jquery.touchSwipe.min.js"></script>
+<script type="text/javascript">
+var tooltipTriggerList = [].slice.call(document.querySelectorAll('[data-bs-toggle="tooltip"]'))
+var tooltipList = tooltipTriggerList.map(function (tooltipTriggerEl) {
+  return new bootstrap.Tooltip(tooltipTriggerEl)
+})
+</script>
     <script>
+
 $(".carousel").swipe({
                 swipe: function (event, direction, distance, duration, fingerCount, fingerData) {
                     if (direction == 'left') $(this).carousel('next');
