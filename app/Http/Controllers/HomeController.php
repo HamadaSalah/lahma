@@ -131,7 +131,6 @@ class HomeController extends Controller
                         'count' => $mycart['count'] ?? 1,
                         'order_id' => $order->id,
                         'options' => $mycart['options'] ?? [] 
-
                     ]);
                 }
                 Session::forget('mycart');
