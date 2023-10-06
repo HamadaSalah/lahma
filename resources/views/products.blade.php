@@ -14,22 +14,36 @@
 <div class="products">
     <div class="container">
         <div class="row">
-            @foreach ($products as $prod)
-                
+            @foreach($products as $prod)
+
                 <div class="col-md-4">
-                    <div class="primary_product">
-                        <img src="{{asset('uploads/'.$prod->img)}}" alt="">
-                        <div class="pro_d">
-                            <p>{{$prod->name}}</p>
-                            <span></span>
-                            <p>{{$prod->price ?? $prod->products[0]->price ?? ''}} ريال</p>
-                            <a href="{{route('product', $prod->id)}}"><i class="addToCard fa-solid fa-plus"></i></a>
+                    <a href="{{ Route('product', $prod->id) }}">
+                        <div class="primary_product">
+                            <img src="{{ asset('uploads/'.$prod->img) }}" alt="">
+                            <div class="pro_d">
+                                <p>{{ $prod->name }}</p>
+                                <span></span>
+                                <p>{{ $prod->price ?? $prod->products[0]->price ?? '' }}
+                                    ريال</p>
+                                <a href="{{ Route('product', $prod->id) }}">
+                                    <button data-bs-toggle="tooltip" data-bs-placement="top" title="اطلب المنتج"><i
+                                            class="addToCard fa-solid fa-plus"></i></button></a>
+                            </div>
                         </div>
-                    </div>
+                    </a>
                 </div>
             @endforeach
 
         </div>
     </div>
 </div>
+@push('myscripts')
+    <script type="text/javascript">
+    var tooltipTriggerList = [].slice.call(document.querySelectorAll('[data-bs-toggle="tooltip"]'))
+    var tooltipList = tooltipTriggerList.map(function (tooltipTriggerEl) {
+    return new bootstrap.Tooltip(tooltipTriggerEl)
+    })
+    </script>
+@endpush
+
 @endsection

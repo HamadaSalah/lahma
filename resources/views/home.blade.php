@@ -96,15 +96,17 @@
                                     <div class="row">
                                         @foreach ($mychild->products as $prodd)
                                             <div class="col-md-4">
+                                                <a href="{{Route('product', $prodd->id)}}">
                                                 <div class="primary_product">
                                                     <img src="{{asset('uploads/'.$prodd->img)}}" alt="">
                                                     <div class="pro_d">
                                                         <p>{{$prodd->name}}</p>
                                                         <span>{{$prodd->name}}</span>
                                                         <p>{{$prodd->price ?? $prodd->products[0]->price ?? ''}} ريال</p>
-                                                        <a href="{{Route('product', $prodd->id)}}"><button data-bs-toggle="tooltip" data-bs-placement="top" title="Tooltip on top"><i class="addToCard fa-solid fa-plus" ></i></button></a>
+                                                        <a href="{{Route('product', $prodd->id)}}"><button data-bs-toggle="tooltip" data-bs-placement="top" title="اطلب المنتج"><i class="addToCard fa-solid fa-plus" ></i></button></a>
                                                     </div>
                                                 </div>
+                                                </a>
                                             </div>
                                             
                                         @endforeach
@@ -118,6 +120,7 @@
                     <div class="row">
                         @foreach ($mycatt->products->take(6) as $prodd2)
                             <div class="col-md-4">
+                                <a href="{{Route('product', $prodd2->id)}}">
                                 <div class="primary_product">
                                     <img src="{{asset('uploads/'.$prodd2->img)}}" alt="">
                                     <div class="pro_d">
@@ -125,9 +128,10 @@
                                         <span>{{$prodd2->name}}</span>
                                         <p>{{$prodd2->price ?? $prodd2->products[0]->price ?? ''}} ريال</p>
                                         <a href="{{Route('product', $prodd2->id)}}">
-                                            <button data-bs-toggle="tooltip" data-bs-placement="top" title="Tooltip on top"><i class="addToCard fa-solid fa-plus"></i></button></a>
+                                            <button data-bs-toggle="tooltip" data-bs-placement="top" title="اطلب المنتج"><i class="addToCard fa-solid fa-plus"></i></button></a>
                                     </div>
                                 </div>
+                                </a>
                             </div>
                         @endforeach
                         @if ($mycatt->products->count() > 6)
@@ -207,7 +211,7 @@
                         {{-- <span>8 - 11 كيلو</span> --}}
                         <p>{{$prod->price ?? $prod->products[0]->price ?? ''}} ريال</p>
                         <a href="{{Route('product', $prod->id)}}">
-                            <button data-bs-toggle="tooltip" data-bs-placement="top" title="Tooltip on top">
+                            <button data-bs-toggle="tooltip" data-bs-placement="top" title="اطلب المنتج">
                             <i class="addToCard fa-solid fa-plus"></i>
                             </button>
                         </a>

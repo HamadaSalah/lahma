@@ -28,7 +28,7 @@
                     <span>التصنيف -{{ $product->category->name }}</span>
                     <span class="mypprice">
                         @if ($product->price)
-                            {{$product->price.'ر.س'}}
+                            {{$product->price. ' ر.س ' }}
                         @endif
                         </span>
                 </div>
@@ -127,7 +127,7 @@
                                 </div>
                              </div>
                             <div>
-                                <h5 style="color: crimson;line-height: 50px;"> <input type="number" disabled value="{{$product->price}}" class="disinput MyPrice"> ر.س</h5>
+                                <h5 style="color: crimson;line-height: 50px;" class=""> <input type="number" disabled value="{{$product->price}}" class="disinput MyPrice ">  ر.س </h5>
                             </div>
                             <div>
                                 <div class="number-input">
