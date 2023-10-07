@@ -18,6 +18,8 @@ Route::get('/aboutus', [CategoryController::class, 'aboutUs'])->name('aboutUs');
 Route::post('/register', [CategoryController::class, 'register'])->name('register');
 Route::get('/categories', [CategoryController::class, 'categories'])->name('categories');
 Route::get('/category/{id}', [CategoryController::class, 'category'])->name('category');
+Route::get('/slider', [CategoryController::class, 'slider'])->name('slider');
+Route::post('/search', [CategoryController::class, 'search'])->name('search');
 
 
 

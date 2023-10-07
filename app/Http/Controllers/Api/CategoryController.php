@@ -8,6 +8,7 @@ use App\Models\Order;
 use App\Models\OrderProduct;
 use App\Models\Product;
 use App\Models\Settings;
+use App\Models\Slider;
 use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
@@ -194,6 +195,25 @@ class CategoryController extends Controller
 
     }
 
+
+    public function slider() {
+        
+        $sliders = Slider::latest()->get();
+        return response()->json(["sliders" => $sliders], 404);
+
+    }
+
+    public function search(Request $request) {
+        
+        $request->validate([
+            'search' => 'required'
+        ]);
+
+        $products = Product::where('name', 'LIKE', '%'.$request->search.'%')->get();
+        
+        return response()->json(["products" => $products], 404);
+
+    }
 
 
 }

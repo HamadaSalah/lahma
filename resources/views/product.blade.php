@@ -25,7 +25,7 @@
             <div class="col-md-8">
                 <div class="pro_name">
                     <h3>{{$product->name}} </h3>
-                    <span>التصنيف -{{ $product->category->name }}</span>
+                    <span>التصنيف - {{ $product->category->name }}</span>
                     <span class="mypprice">
                         @if ($product->price)
                             {{$product->price. ' ر.س ' }}
