@@ -27,7 +27,7 @@ class Product extends Model
     }
     public function averageRate()
     {
-        return $this->rates()->average('rate');
+        return $this->rates()->average('rate') ?? null;
     }
 
     public function options(): BelongsToMany
