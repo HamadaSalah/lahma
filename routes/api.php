@@ -20,6 +20,7 @@ Route::get('/categories', [CategoryController::class, 'categories'])->name('cate
 Route::get('/category/{id}', [CategoryController::class, 'category'])->name('category');
 Route::get('/slider', [CategoryController::class, 'slider'])->name('slider');
 Route::post('/search', [CategoryController::class, 'search'])->name('search');
+Route::post('/rate/{id}', [CategoryController::class, 'rate'])->name('rate');
 
 
 

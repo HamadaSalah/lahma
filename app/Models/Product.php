@@ -22,6 +22,13 @@ class Product extends Model
     public function products() {
         return $this->hasMany(SubProduct::class);
     }
+    public function rates() {
+        return $this->hasMany(Rate::class);
+    }
+    public function averageRate()
+    {
+        return $this->rates()->average('rate');
+    }
 
     public function options(): BelongsToMany
     {

@@ -7,6 +7,7 @@ use App\Models\Category;
 use App\Models\Order;
 use App\Models\OrderProduct;
 use App\Models\Product;
+use App\Models\Rate;
 use App\Models\Settings;
 use App\Models\Slider;
 use App\Models\User;
@@ -36,9 +37,12 @@ class CategoryController extends Controller
 
     public function product($id)
     {
+        
+        
         try {
-            $product = Product::with(['products','options', 'category'])->find($id);
-            return response()->json(["product" => $product], 200);
+            $productt = Product::with(['products','options', 'category', 'rates'])->withAvg('rates', 'rate')->find($id);
+            $productt->rates_avg_rate = (int) $productt->rates_avg_rate;
+            return response()->json(["product" => $productt], 200);
 
         }
         catch(\Exception $e) {
@@ -185,7 +189,7 @@ class CategoryController extends Controller
     
             }
             $order->load(['products', 'products.product']);
-            return response()->json(["message" => "Order Created Suuceesfully", "order" => $order], 404);
+            return response()->json(["message" => "Order Created Suuceesfully", "order" => $order], 200);
 
         }
         catch(\Exception $e) {
@@ -199,7 +203,7 @@ class CategoryController extends Controller
     public function slider() {
         
         $sliders = Slider::latest()->get();
-        return response()->json(["sliders" => $sliders], 404);
+        return response()->json(["sliders" => $sliders], 200);
 
     }
 
@@ -211,9 +215,21 @@ class CategoryController extends Controller
 
         $products = Product::where('name', 'LIKE', '%'.$request->search.'%')->get();
         
-        return response()->json(["products" => $products], 404);
+        return response()->json(["products" => $products], 200);
 
     }
+    public function rate($id, Request $request) {
 
+        $request->validate([
+            'rate' => 'required|numeric|min:1|max:5'
+        ]);
+
+        $rate = Rate::create([
+            'product_id' => $id,
+            'rate' => $request->rate
+        ]);
+        return response()->json(["rate" => $rate], 200);
+
+    }
 
 }
