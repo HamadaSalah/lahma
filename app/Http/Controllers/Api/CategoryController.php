@@ -75,7 +75,11 @@ class CategoryController extends Controller
 
             $set = Settings::first();
 
-            return response()->json(['settings' => $set], 200);
+            return response()->json(
+                [
+                    'about_us' => $set->about_us,
+                    'terms' => $set->terms,
+            ], 200);
 
         }
         catch(\Exception $e) {
@@ -229,6 +233,19 @@ class CategoryController extends Controller
             'rate' => $request->rate
         ]);
         return response()->json(["rate" => $rate], 200);
+
+    }
+    //
+    public function contactsForm(Request $request) {
+
+        $request->validate([
+            'name' => 'required',
+            'phone' => 'required',
+            'subject' => 'required',
+            'msg' => 'required',
+        ]);
+
+        return response()->json(["message" => "Saved Succesffuly"], 200);
 
     }
 
