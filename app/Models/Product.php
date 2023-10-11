@@ -38,5 +38,10 @@ class Product extends Model
     public function category() {
         return $this->belongsTo(Category::class, 'category_id', 'id');
     }
+    public function getDescriptionAttribute($value)
+    {
+        // strip_tags() function will remove all HTML tags from the string.
+        return strip_tags($value);
+    }
 
 }
