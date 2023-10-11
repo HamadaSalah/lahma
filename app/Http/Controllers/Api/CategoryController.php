@@ -79,7 +79,8 @@ class CategoryController extends Controller
                 [
                     'about_us' => $set->about_us,
                     'terms' => $set->terms,
-            ], 200);
+                ], 
+                200);
 
         }
         catch(\Exception $e) {
@@ -164,7 +165,7 @@ class CategoryController extends Controller
      */
     public function orders() {
 
-        $orders = Order::with(['products', 'products.product'])->where('user_id', auth()->user()->id)->latest()->get();
+        $orders = Order::with(['products', 'products.product', 'products.subProduct'])->where('user_id', auth()->user()->id)->latest()->get();
         
         return response()->json(["orders" => $orders], 200);
 

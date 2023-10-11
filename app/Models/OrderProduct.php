@@ -21,5 +21,8 @@ class OrderProduct extends Model
     public function product() {
         return $this->hasOne(Product::class, 'id', 'product_id');
     }
+    public function subProduct() {
+        return $this->hasOne(SubProduct::class, 'id', 'sub_product_id');
+    }
 
 }
