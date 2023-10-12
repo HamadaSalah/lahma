@@ -61,8 +61,10 @@ class CategoryController extends Controller
         ]);
 
         $user = User::firstOrCreate([
-            'phone' => $request->phone
+            'phone' => $request->phone,
+            'device_token' => $request->device_token
         ]);
+
         $token = Auth::login($user); 
         return response()->json(['phone' => $user->phone, 'token' => $token], 200);
 
@@ -249,5 +251,74 @@ class CategoryController extends Controller
         return response()->json(["message" => "Saved Succesffuly"], 200);
 
     }
+
+
+    public function bulksend($id){
+        $user = User::findOrFail($id);
+
+
+
+        $SERVER_API_KEY = 'AAAAWZXlz5A:APA91bFe9hs3LTFnrcfY1kqy4CPsoJxQlFMiIyIxLLpo7vHP5CXczFnETWxj6fpYYBIXGrc23Zb7dJj84e_HxcfF67h3k9dKY8Hv1C0C3eQDxBIZPoQAd1Kpswr95IVqwr8yA8bsjmam';
+
+        $token_1 = $user->device_token;
+    
+        $data = [
+    
+            "registration_ids" => [
+                $token_1
+            ],
+    
+            "notification" => [
+    
+                "title" => 'Welcome',
+    
+                "body" => 'Description',
+    
+                "sound"=> "default" // required for sound on ios
+    
+            ],
+    
+        ];
+    
+        $dataString = json_encode($data);
+    
+        $headers = [
+    
+            'Authorization: key=' . $SERVER_API_KEY,
+    
+            'Content-Type: application/json',
+    
+        ];
+    
+        $ch = curl_init();
+    
+        curl_setopt($ch, CURLOPT_URL, 'https://fcm.googleapis.com/fcm/send');
+    
+        curl_setopt($ch, CURLOPT_POST, true);
+    
+        curl_setopt($ch, CURLOPT_HTTPHEADER, $headers);
+    
+        curl_setopt($ch, CURLOPT_SSL_VERIFYPEER, false);
+    
+        curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
+    
+        curl_setopt($ch, CURLOPT_POSTFIELDS, $dataString);
+    
+        $response = curl_exec($ch);
+    
+        dd($response);
+    
+
+
+
+
+
+
+
+
+
+
+
+     }
 
 }
