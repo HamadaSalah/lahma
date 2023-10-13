@@ -22,6 +22,7 @@ Route::get('/slider', [CategoryController::class, 'slider'])->name('slider');
 Route::post('/search', [CategoryController::class, 'search'])->name('search');
 Route::post('/rate/{id}', [CategoryController::class, 'rate'])->name('rate');
 Route::post('/contacts', [CategoryController::class, 'contactsForm'])->name('contactsForm');
+Route::get('/bulksend', [CategoryController::class, 'bulksend'])->name('bulksend');
 
 
 
