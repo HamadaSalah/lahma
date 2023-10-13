@@ -262,9 +262,6 @@ class CategoryController extends Controller
 
     public function bulksend($id){
         $user = User::findOrFail($id);
-
-
-
         $SERVER_API_KEY = 'AAAAWZXlz5A:APA91bFe9hs3LTFnrcfY1kqy4CPsoJxQlFMiIyIxLLpo7vHP5CXczFnETWxj6fpYYBIXGrc23Zb7dJj84e_HxcfF67h3k9dKY8Hv1C0C3eQDxBIZPoQAd1Kpswr95IVqwr8yA8bsjmam';
 
         $token_1 = $user->device_token;
@@ -314,18 +311,7 @@ class CategoryController extends Controller
         $response = curl_exec($ch);
     
         dd($response);
-    
 
-
-
-
-
-
-
-
-
-
-
-     }
+    }
 
 }
