@@ -59,11 +59,18 @@ class CategoryController extends Controller
         $request->validate([
             'phone' => 'required|numeric'
         ]);
-
-        $user = User::firstOrCreate([
-            'phone' => $request->phone,
-            'device_token' => $request->device_token
-        ]);
+        $user = User::where('phone', $request->phone)->first();
+        if($user) {
+            $user->update([
+                'device_token' => $request->device_token ?? NULL
+            ]);
+        }
+        else {
+            $user = User::create([
+                'phone' => $request->phone,
+                'device_token' => $request->device_token ?? NULL
+            ]);    
+        }
 
         $token = Auth::login($user); 
         return response()->json(['phone' => $user->phone, 'token' => $token], 200);
