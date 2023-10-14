@@ -26,14 +26,9 @@ Route::get('/bulksend/{id}', [CategoryController::class, 'bulksend'])->name('bul
 
 
 
-Route::group([
-
-    'middleware' => 'auth:api',
-
-], function ($router) {
+Route::group(['middleware' => 'auth:api'], function ($router) {
     Route::get('/orders', [CategoryController::class, 'orders'])->name('orders');
     Route::post('/checkout', [CategoryController::class, 'checkout'])->name('checkout');
-
 });
 
 

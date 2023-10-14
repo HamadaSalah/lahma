@@ -34,6 +34,8 @@ Route::prefix('admin')->middleware('auth:admin')->name('admin.')->group(function
     Route::resource('orders', OrdersController::class);
     Route::get('categories/{id}', [CategoryController::class, 'categories'])->name('categories');
     Route::resource('sliders', SliderController::class);
+    Route::get('notification', [CategoryController::class, 'notification'])->name('notification');
+    Route::post('notification', [CategoryController::class, 'SendNotification'])->name('SendNotification');
 
     // Route::get('subproducts/{id}', [ProductController::class, 'subproducts'])->name('subproducts');
     // Route::put('subproducts/{id}', [ProductController::class, 'subproducts'])->name('subproducts');
