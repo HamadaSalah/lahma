@@ -29,12 +29,16 @@
 @endif
 @if (session('error'))
 <div class="row">
-<div class="alert alert-danger">
+    <div class="alert alert-warning alert-dismissible fade show" role="alert">
+        <strong>Danger - </b> {{session('error')}}
+        <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"><i style="color: #000;margin-top: 10px" class="fa-solid fa-xmark"></i></button>
+    </div>
+{{-- <div class="alert alert-danger">
     <button type="button" class="close" data-dismiss="alert" aria-label="Close">
         <i class="fa fa-close" class="myclose"></i>
     </button>
     <span>
         <b> Danger - </b> {{session('error')}}</span>
-</div>
+</div> --}}
 </div>
 @endif

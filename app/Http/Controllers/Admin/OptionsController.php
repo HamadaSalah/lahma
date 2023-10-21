@@ -96,7 +96,12 @@ class OptionsController extends Controller
      */
     public function destroy(string $id)
     {
-        $cat = Option::findOrFail($id)->delete();
+        $cat = Option::findOrFail($id);
+        if(count($cat->products) > 0) {
+            return redirect()->route('admin.options.index')->with('error', 'لا يمكن الحذف لانة مرتبط بالمنتجات');
+
+        }
+        $cat->delete();;
 
         return redirect()->route('admin.options.index')->with('success', 'تم حذف القسم بنجاح');
 

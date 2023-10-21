@@ -73,10 +73,9 @@ class HomeController extends Controller
 
         Session::put('mycart', $myproducts, 43200);
 
-        Auth::login($user);
         if(Session::get('mycart')) {
 
-            $order = Order::create(['user_id' => auth()->user()->id]);
+            $order = Order::create(['user_id' => $user->id]);
 
             foreach(Session::get('mycart') as $mycart) {
                 OrderProduct::create([
@@ -88,6 +87,7 @@ class HomeController extends Controller
             }
             Session::forget('mycart');
         }
+        Auth::guard('web')->login($user);
         return redirect()->route('mycard');
     }
     

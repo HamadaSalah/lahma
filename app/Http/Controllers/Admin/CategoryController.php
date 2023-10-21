@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
 use App\Models\Category;
+use App\Models\Product;
 use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Storage;
@@ -114,6 +115,14 @@ class CategoryController extends Controller
      */
     public function destroy(string $id)
     {
+
+        $cat = Category::where('id', $id)->orWhere(['category_id' => $id])->get();
+        $ids = $cat->pluck('id');
+        $products = Product::whereIn('category_id', $ids)->get();
+        foreach($products as $prod) {
+            $prod->options()->detach();
+            $prod->delete();
+        }
         $cat = Category::where('id', $id)->orWhere(['category_id' => $id])->delete();
 
         return redirect()->route('admin.category.index')->with('success', 'تم حذف القسم بنجاح');
