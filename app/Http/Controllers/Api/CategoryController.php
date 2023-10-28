@@ -88,6 +88,7 @@ class CategoryController extends Controller
                 [
                     'about_us' => $set->about_us,
                     'terms' => $set->terms,
+                    'video' => $set->video
                 ], 
                 200);
 
