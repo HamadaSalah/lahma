@@ -20,7 +20,7 @@
                 <td>{{ $order->user->phone}}</td>
                 <td>
                     @foreach ($order->products as $prod)
-                        <li>{{$prod->product->name}} -  العدد <span class="myco">{{$prod->count}}</span></li>
+                        <li>{{$prod->product?->name}} -  العدد <span class="myco">{{$prod->count}}</span></li>
                     @endforeach
                 </td>
                 <td><button class="btn btn-success ShowDet" data-bs-toggle="modal" data-bs-target="#orderdetails" data-id="{{$order->id}}" >اظهار التفاصيل</button></td>

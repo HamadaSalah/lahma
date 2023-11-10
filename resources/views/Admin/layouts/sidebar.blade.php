@@ -26,7 +26,7 @@
                     <a class="dropdown-item border-radius-md" href="javascript:;">
                       <div class="d-flex py-1">
                         <div class="my-auto">
-                          <img src="{{asset('dashboard/assets/img/team-2.jpg')}}" class="avatar avatar-sm border-radius-sm  ms-3 ">
+                          {{-- <img src="{{asset('dashboard/assets/img/team-2.jpg')}}" class="avatar avatar-sm border-radius-sm  ms-3 "> --}}
                         </div>
                         <div class="d-flex flex-column justify-content-center">
                           <h6 class="text-sm font-weight-normal mb-1">
@@ -92,7 +92,7 @@
               </li>
               <li class="nav-item ps-2 d-flex align-items-center">
                 <a href="javascript:;" class="nav-link text-body p-0">
-                  <img src="{{asset('dashboard/assets/img/team-2.jpg')}}" class="avatar avatar-sm" alt="avatar" />
+                  {{-- <img src="{{asset('dashboard/assets/img/team-2.jpg')}}" class="avatar avatar-sm" alt="avatar" /> --}}
                 </a>
               </li>
             </ul>

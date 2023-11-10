@@ -9,12 +9,12 @@
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
   <title>
 
-    Abo Lahma
+    الذهبية للحوم
 
   </title>
-  <meta name="Keywords" content="">
-  <meta name="Description" content="">
-  <meta name="csrf-token" content="">
+  <meta name="Keywords" content="الذهبية للحوم">
+  <meta name="Description" content="الذهبية للحوم">
+  <meta name="csrf-token" content="{{csrf_token()}}">
   <!-- Stylesheet -->
   <link rel="stylesheet" href="{{asset('css/bootstrap.rtl.min.css')}}">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">

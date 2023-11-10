@@ -170,35 +170,41 @@
             <div class="maz">
                 <img src="img/maz/2.png" alt="">
                 <p>التغليف</p>
-                <span>نهتم بجودة اللحوم ونظافتها باستمرار</span>
+                <span>نُغلف الذبيحة حسب اختيارك 
+                    فاكيوم - صحون- اكياس
+                    </span>
             </div>
         </div>
         <div class="col-lg-2 col-md-4 col-sm-6 col-xs-6">
             <div class="maz">
-                <img src="img/maz/3.png" alt="">
-                <p>دفع اسهل</p>
-                <span>نهتم بجودة اللحوم ونظافتها باستمرار</span>
+                <img src="img/maz/6.png" alt="">
+                <p> توثيق ذبيحتك</p>
+                <span>يتم توثيق اختيار ذبيحتك بصورة وارسالها لك
+                </span>
             </div>
         </div>
         <div class="col-lg-2 col-md-4 col-sm-6 col-xs-6">
             <div class="maz">
                 <img src="img/maz/4.png" alt="">
                 <p>توصيل اسرع</p>
-                <span>نهتم بجودة اللحوم ونظافتها باستمرار</span>
+                <span>سيارات مُبرَّدة ومُجهَّزة لتوصيل الذبائح
+                </span>
             </div>
         </div>
         <div class="col-lg-2 col-md-4 col-sm-6 col-xs-6">
             <div class="maz">
                 <img src="img/maz/5.png" alt="">
                 <p>عملية الذبح</p>
-                <span>نهتم بجودة اللحوم ونظافتها باستمرار</span>
+                <span>نبدأ العمل في ذبيحتك فور طلبها 
+                </span>
             </div>
         </div>
         <div class="col-lg-2 col-md-4 col-sm-6 col-xs-6">
             <div class="maz">
                 <img src="img/maz/5.png" alt="">
                 <p>التقطيع</p>
-                <span>نهتم بجودة اللحوم ونظافتها باستمرار</span>
+                <span>نُقطع الذبيحة حسب طلبك
+                </span>
             </div>
         </div>
     </div>

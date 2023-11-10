@@ -37,11 +37,11 @@ class CategoryController extends Controller
 
     public function product($id)
     {
-        
-        
         try {
             $productt = Product::with(['products','options', 'category', 'rates'])->withAvg('rates', 'rate')->find($id);
+
             $productt->rates_avg_rate = (int) $productt->rates_avg_rate;
+            
             return response()->json(["product" => $productt], 200);
 
         }

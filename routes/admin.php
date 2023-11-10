@@ -5,6 +5,7 @@ use App\Http\Controllers\Admin\LoginController;
 use App\Http\Controllers\Admin\OptionsController;
 use App\Http\Controllers\Admin\OrdersController;
 use App\Http\Controllers\Admin\ProductController;
+use App\Http\Controllers\Admin\SettingsController;
 use App\Http\Controllers\Admin\SliderController;
 use App\Http\Controllers\Admin\SubProductController;
 use Illuminate\Support\Facades\Route;
@@ -36,6 +37,7 @@ Route::prefix('admin')->middleware('auth:admin')->name('admin.')->group(function
     Route::resource('sliders', SliderController::class);
     Route::get('notification', [CategoryController::class, 'notification'])->name('notification');
     Route::post('notification', [CategoryController::class, 'SendNotification'])->name('SendNotification');
+    Route::resource('settings', SettingsController::class);
 
     // Route::get('subproducts/{id}', [ProductController::class, 'subproducts'])->name('subproducts');
     // Route::put('subproducts/{id}', [ProductController::class, 'subproducts'])->name('subproducts');

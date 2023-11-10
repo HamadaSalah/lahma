@@ -4,8 +4,10 @@ namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
 use App\Models\AskPay;
+use App\Models\Category;
 use App\Models\Client;
 use App\Models\Order;
+use App\Models\Product;
 use App\Models\User;
 use Illuminate\Http\Request;
 
@@ -32,9 +34,9 @@ class LoginController extends Controller
     {
         return view('Admin.index', [
             'title' => 'الرئيسية',
-            'employees' => 5,
-            'users' => 5,
-            'con' => 5
+            'category' => Category::count(),
+            'user' => User::count(),
+            'product' => Product::count()
         ]);
     }
     public function logout(Request $request)
