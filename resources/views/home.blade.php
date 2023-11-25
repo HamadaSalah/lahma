@@ -8,12 +8,6 @@
             @foreach ($sliders as $slid)
                 <div class="carousel-item <?php if($loop->index == 0 ) echo "active"; ?>">
                     <img src="{{asset('uploads/'.$slid->img)}}" class="d-block w-100" alt="...">
-                    <div class="overlay">
-                        <div class="carousel-caption d-none d-md-block">
-                            <h5>الذهبية للحوم</h5>
-                            <p>أجود انواع اللحم تلاقية عندنا بافضل الاسعار</p>
-                          </div>
-                    </div>
                 </div>           
                      
             @endforeach
@@ -40,7 +34,7 @@
         </form>
     </div>
 </div>
-
+ 
 {{-- <div class="slider">
 <div class="container">
     <div class="row">
@@ -278,11 +272,11 @@
 </div>
 </div>
 @push('styles')
-<link rel="stylesheet" href="https://unpkg.com/swiper/swiper-bundle.min.css">
+{{-- <link rel="stylesheet" href="https://unpkg.com/swiper/swiper-bundle.min.css"> --}}
 
 @endpush
 @push('myscripts')
-<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.touchswipe/1.6.19/jquery.touchSwipe.min.js"></script>
+{{-- <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.touchswipe/1.6.19/jquery.touchSwipe.min.js"></script> --}}
 <script type="text/javascript">
 var tooltipTriggerList = [].slice.call(document.querySelectorAll('[data-bs-toggle="tooltip"]'))
 var tooltipList = tooltipTriggerList.map(function (tooltipTriggerEl) {

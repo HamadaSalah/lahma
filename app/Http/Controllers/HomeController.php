@@ -9,9 +9,11 @@ use App\Models\OrderProduct;
 use App\Models\Product;
 use App\Models\Slider;
 use App\Models\User;
+use Faker\Factory;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Cache;
+use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Session;
 
 class HomeController extends Controller
@@ -32,6 +34,10 @@ class HomeController extends Controller
 
 
         return view('home', compact('cats', 'products', 'sliders'));
+    }
+
+    public function myregisterr() {
+        return view('regg');
     }
     /**
      * Show the application dashboard.
@@ -62,34 +68,29 @@ class HomeController extends Controller
     //
     public function mylogin(Request $request) {
 
+        $myproducts = Session::get('mycart');
+
         $request->validate([
             'phone' => 'required'
         ]);
 
+        $faker =  Factory::create();
+
         $user = User::firstOrCreate([
-            'phone' => $request->phone
-        ]);
-        $myproducts = Session::get('mycart');
+            'phone' => $request->phone],[
+                'phone' => $request->phone,
+                'name' => $faker->name,
+                'email' => $faker->email,
+                'password' => Hash::make('12332100')
+            ]
+        );
 
-        Session::put('mycart', $myproducts, 43200);
+        Session::put('mycard', $myproducts);
 
-        if(Session::get('mycart')) {
-
-            $order = Order::create(['user_id' => $user->id]);
-
-            foreach(Session::get('mycart') as $mycart) {
-                OrderProduct::create([
-                    'product_id' => $mycart['product_id'],
-                    'sub_product_id' => $mycart['sub_product_id'] ?? '',
-                    'count' => $mycart['count'],
-                    'order_id' => $order->id,
-                ]);
-            }
-            Session::forget('mycart');
-        }
-        Auth::guard('web')->login($user);
-        return redirect()->route('mycard');
-    }
+        auth()->login($user);
+        
+        return redirect()->route('index');
+     }
     
     //
     public function products() {

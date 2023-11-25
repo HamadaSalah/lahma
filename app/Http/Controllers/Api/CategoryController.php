@@ -11,8 +11,11 @@ use App\Models\Rate;
 use App\Models\Settings;
 use App\Models\Slider;
 use App\Models\User;
+use GuzzleHttp\Client;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Cookie;
+use Illuminate\Support\Facades\Session;
 
 class CategoryController extends Controller
 {
@@ -21,7 +24,7 @@ class CategoryController extends Controller
      */
     public function index()
     {
-        $cats = Category::with(['child', 'parent', 'products', 'child.products'])->where('category_id', NULL)->get();
+        $cats = Category::with(['child', 'parent', 'products', 'child.products',  'child.products.products'])->where('category_id', NULL)->get();
 
         $products = Product::whereIn('id', [1,2,16,52,17,18])->get();
 
@@ -72,7 +75,7 @@ class CategoryController extends Controller
             ]);    
         }
 
-        $token = Auth::login($user); 
+        $token = Auth::guard('api')->login($user);
         return response()->json(['phone' => $user->phone, 'token' => $token], 200);
 
     }
@@ -191,7 +194,13 @@ class CategoryController extends Controller
             "products.*.count" => 'required'
         ]);
         try {
-            $order = Order::create(['user_id' => auth()->user('api')->id]);
+            $order = Order::create([
+                'user_id' => auth()->user('api')->id,
+                'name' => $request->name,
+                'address' => $request->address,
+                'paytype' => $request->paytybe,
+                'city' => $request->city,
+            ]);
 
             foreach($request->products as $mycart) {
                 OrderProduct::create([
@@ -208,7 +217,7 @@ class CategoryController extends Controller
 
         }
         catch(\Exception $e) {
-            return response()->json(["message" => "Category Not Found"], 404);
+            return response()->json(["message" => $e->getMessage()], 404);
 
         }
 
@@ -314,5 +323,49 @@ class CategoryController extends Controller
         dd($response);
 
     }
+    //
+    public function sms(Request $request) {
+            // Create a Guzzle client instance
+        $client = new Client();
+        // Specify the URL for the POST request
+        $url = 'https://api.oursms.com/api-a/msgs';
 
+        $message = 'اهلا وسهلا بكم في الذهبية للحوم
+        لا تقوم بمشاركة هذا الكود مع احد
+        كود التفعيل هو ' . $request->code ;
+        // Define the data you want to send in the request body
+        $data = [
+            'username' => 'bassm',
+            'token' => 'jfTy8BA9b0WcrzNLzvVl',
+            'src' => 'oursms',
+            'dests' => '966531430598',
+            'body' => $message,
+            'priority' => 0,
+            'delay' => 0,
+            'validity' => 0,
+            'maxParts' => 0,
+            'dlr' => 0,
+        ];
+        
+        // Make the POST request
+        $response = $client->post($url, [
+            'form_params' => $data,  
+        ]);
+
+         $body = $response->getBody()->getContents();
+
+ 
+    }
+    //
+
+    public function verifycode(Request $request) {
+        dd($request->all());
+            $user = User::firstOrCreate([
+                'phone' => $request->phone
+            ]);
+            
+            Auth::login($user);
+ 
+
+    }
 }

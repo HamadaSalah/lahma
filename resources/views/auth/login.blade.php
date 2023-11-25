@@ -8,14 +8,14 @@
                 <div class="card-body">
                     <form method="POST" action="{{ route('mylogin') }}" id="MyRegFormm">
                         @csrf
-
                         <div class="row mb-3">
                             <center><h1 style="font-weight: bold" class="mb-3 mt-5">مرحباً</h1></center>
                             <label for="phone" class="col-md-12 col-form-label text-center mb-3">لكي تتمكن من الشراء قم بتسجيل الدخول</label>
 
                             <div class="col-md-12">
-                                <input id="phone" type="phone" class="form-control @error('phone') is-invalid @enderror" name="phone" value="{{ old('phone') }}" required autocomplete="phone" autofocus>
-                                <div id="recaptcha-container"></div>
+                                <input id="phone" type="number" class="form-control @error('phone') is-invalid @enderror" name="phone" value="{{ old('phone') }}" required autocomplete="phone" autofocus  style="width: 70%;display: inline;text-align: left" >
+                                <input type="text" class="form-control" style="width: 20%;display: inline;" disabled value="+966">
+                                {{-- <div id="recaptcha-container"></div> --}}
 
                                 @error('phone')
                                     <span class="invalid-feedback" role="alert">
@@ -39,7 +39,7 @@
                         <div class="alert alert-success" id="successOtpAuth" style="display: none;"></div>
                         <div class="alert alert-danger" id="error" style="display: none;"></div>
                          <form>
-                            <input type="text" id="verification" class="form-control" placeholder="كو التفيعل">
+                            <input type="text" id="verification" class="form-control" placeholder="كود التفيعل">
                             <button type="button" class="btn btn-danger mt-3" onclick="verify()">تفعيل</button>
                         </form>
                     </div>
@@ -69,6 +69,7 @@
     firebase.initializeApp(firebaseConfig);
 </script>
 <script type="text/javascript">
+     var randomNumber = '';
     window.onload = function () {
         render();
     };
@@ -82,36 +83,49 @@
 
     function sendOTP() {
         $("#SeconddFrom").css({"display":"block"});
-        $("#MyRegFormm").css({"opacity":"0"});
-        var number = $("#phone").val();
-        console.log(number);
-        firebase.auth().signInWithPhoneNumber(number, window.recaptchaVerifier).then(function (confirmationResult) {
-            window.confirmationResult = confirmationResult;
-            coderesult = confirmationResult;
-            console.log(coderesult);
-            $("#successAuth").text("Message sent");
-            $("#successAuth").show();
-        }).catch(function (error) {
-            $("#error").text("error.message");
-            $("#error").show();
+        $("#MyRegFormm").css({"display":"none"});
+        var number = '966'+$("#phone").val();
+
+        randomNumber = Math.floor(Math.random() * (999999 - 100000 + 1)) + 100000;
+        console.log(randomNumber);
+        $.ajax({
+           type:'POST',
+           url: '{{Route('sms')}}',
+           data:{phone:number, code: randomNumber},
+           success:function(data){
+               
+           }
         });
+
     }
 
 
     function verify() {
         var code = $("#verification").val();
-        coderesult.confirm(code).then(function (result) {
-            var user = result.user;
-            console.log(user);
-            $("#successOtpAuth").text("كود التفعيل صحيح");
-            $("#successOtpAuth").show();
-            
+        console.log(code);
+        if(randomNumber == code) {
             document.getElementById('MyRegFormm').submit();
 
-        }).catch(function (error) {
+        }
+        else {
             $("#error").text("كود التفعيل خاطئ");
-            $("#error").show();
-        });
+                $("#error").show();
+
+        }
+
+        // var code = $("#verification").val();
+        // coderesult.confirm(code).then(function (result) {
+        //     var user = result.user;
+        //     console.log(user);
+        //     $("#successOtpAuth").text("كود التفعيل صحيح");
+        //     $("#successOtpAuth").show();
+            
+        //     document.getElementById('MyRegFormm').submit();
+
+        // }).catch(function (error) {
+        //     $("#error").text("كود التفعيل خاطئ");
+        //     $("#error").show();
+        // });
     }
 </script>
 

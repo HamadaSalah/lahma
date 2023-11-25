@@ -23,6 +23,8 @@ Route::post('/search', [CategoryController::class, 'search'])->name('search');
 Route::post('/rate/{id}', [CategoryController::class, 'rate'])->name('rate');
 Route::post('/contacts', [CategoryController::class, 'contactsForm'])->name('contactsForm');
 Route::get('/bulksend/{id}', [CategoryController::class, 'bulksend'])->name('bulksend');
+Route::post('/sms', [CategoryController::class, 'sms'])->name('sms');
+Route::post('/verifycode', [CategoryController::class, 'verifycode'])->name('verifycode');
 
 
 

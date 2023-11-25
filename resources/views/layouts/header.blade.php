@@ -9,7 +9,7 @@
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
   <title>
 
-    الذهبية للحوم
+    الذهبية للذبائح
 
   </title>
   <meta name="Keywords" content="الذهبية للحوم">

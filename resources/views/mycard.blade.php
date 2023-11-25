@@ -6,6 +6,7 @@
         <div class="row">
             <div class="intro">
                 <h1 style="text-align: center;">سلة المنتجات
+                 
                 </h1>
             </div>
         </div>
@@ -26,8 +27,7 @@
                                             @php
                                                 $total = 0;
                                             @endphp
-                                            {{-- @dd($carts) --}}
-                                            @foreach($carts as $key => $cart)
+                                             @foreach($carts as $key => $cart)
                                              <?php 
                                             if(isset($cart['subProduct'])) {
                                                 $total = $total +( getPrice($cart['subProduct'] ?? $cart['product_id'])*$cart['count']);
@@ -83,7 +83,6 @@
                                 </div>
                             </div>
                         </div>
-
                     @else
                         <center>لا يوجد</center>
                     @endif

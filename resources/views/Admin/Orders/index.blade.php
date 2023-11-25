@@ -110,7 +110,8 @@
                     $("#opt").html("");
 
                     $("#productt").html("");
-
+                    $(".productView").hide();
+ 
                     // Handle the successful response
                     // Assuming the API returns a JSON object
                     // You can update this part to format and display the data as needed
