@@ -121,9 +121,22 @@ class HomeController extends Controller
     }
 
     //
-    public function checkout() {
-        if(isset(auth()->user()->id)) {
-            $order = Order::create(['user_id' => auth()->user()->id]);
+    public function checkout(Request $request) {
+         if(isset(auth()->user()->id)) {
+            $order = Order::create([
+                'user_id' => auth()->user()->id,
+                'address' => $request->address,
+                'name' => $request->name,
+                'city' => $request->city,
+                'paytype' => $request->paytype,
+            ]);
+
+            $user = User::findOrFail(auth()->user()->id);
+
+            $user->update([
+                'name' => $request->name
+            ]);
+            
             if(Session::get('mycart')) {
                 foreach(Session::get('mycart') as $mycart) {
                     OrderProduct::create([

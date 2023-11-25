@@ -38,6 +38,7 @@ Route::prefix('admin')->middleware('auth:admin')->name('admin.')->group(function
     Route::get('notification', [CategoryController::class, 'notification'])->name('notification');
     Route::post('notification', [CategoryController::class, 'SendNotification'])->name('SendNotification');
     Route::resource('settings', SettingsController::class);
+    Route::get('users', [CategoryController::class, 'users'])->name('users');
 
     // Route::get('subproducts/{id}', [ProductController::class, 'subproducts'])->name('subproducts');
     // Route::put('subproducts/{id}', [ProductController::class, 'subproducts'])->name('subproducts');

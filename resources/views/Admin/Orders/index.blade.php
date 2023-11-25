@@ -120,7 +120,16 @@
                     const productContainer = document.getElementById("product-container");
                     const PhoneContainer = document.getElementById("number");
 
-                    PhoneContainer.textContent = `رقم الهاتف: ${data.user.phone}`;
+                    PhoneContainer.innerHTML  = `رقم الهاتف: ${data.user.phone}
+                    <br>
+                    الاسم: ${data.name}
+                    <br> 
+                    العنوان: ${data.address}
+                    <br> 
+                    المدينة: ${data.city}
+                    <br>
+                    الدفع: ${data.paytype}
+                    `;
 
 
                     data.products.forEach((product) => {

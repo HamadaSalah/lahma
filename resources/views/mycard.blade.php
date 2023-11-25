@@ -27,8 +27,8 @@
                                             @php
                                                 $total = 0;
                                             @endphp
-                                             @foreach($carts as $key => $cart)
-                                             <?php 
+                                            @foreach($carts as $key => $cart)
+                                            <?php 
                                             if(isset($cart['subProduct'])) {
                                                 $total = $total +( getPrice($cart['subProduct'] ?? $cart['product_id'])*$cart['count']);
                                             }
@@ -71,14 +71,13 @@
                                                     </div>
                                                 </div>
                                             @endforeach
-
                                             <hr class="my-4">
 
                                         </div>
                                     </div>
                                     <div class="col-lg-12">
                                         <h1 class="text-center" style="color: red">{{$total}} ر.س</h1>
-                                        <button type="submit" style="display: block;width: 100%" class="btn btn-success mb-3" >الدفع</button>
+                                        <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal" style="display: block;width: 100%" class="btn btn-success mb-3" >الدفع</button>
                                     </div>
                                 </div>
                             </div>
@@ -91,6 +90,60 @@
         </div>
     </form>
 </section>
+<!-- Modal -->
+<div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="exampleModalLabel">اطلب الان</h5>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body">
+            <form action="{{Route('checkout')}}" method="GET">
+                @csrf
+                <!-- Name Input -->
+                <div class="mb-3">
+                    <label for="name" class="form-label">الاسم</label>
+                    <input type="text" class="form-control" id="name" name="name" placeholder="الاسم" required>
+                </div>
+        
+                <!-- Address Input -->
+                <div class="mb-3">
+                    <label for="address" class="form-label">العنوان</label>
+                    <input type="text" class="form-control" id="address"  name="address" placeholder="العنوان" required>
+                </div>
+        
+                <!-- Pay Type Select -->
+                <div class="mb-3">
+                    <label for="city" class="form-label"  >المدينة</label>
+                    <select class="form-select" id="city" name="city" required>
+                        <option value="" selected disabled>اختر مدينتك</option>
+                        <option value="الدمام">الدمام</option>
+                        <option value="الخبر">الخبر</option>
+                        <option value="الظهران">الظهران</option>
+                        <option value="القطيف">القطيف</option>
+                        <option value="عنك">عنك</option>
+                        <option value="الجبيل">الجبيل</option>
+                        <option value="راس تنورة">راس تنورة</option>
+                        <option value="الاحساء">الاحساء</option>
+                    </select>
+                </div>
+                        <!-- Pay Type Select -->
+                <div class="mb-3">
+                    <label for="payType" class="form-label" >طريقة الدفع</label>
+                    <select class="form-select" id="payType"  name="paytype" required>
+                        <option value="كاش">كاش</option>
+                        <option value="مكينة الشبكة">مكينة الشبكة</option>
+                    </select>
+                </div>
+        
+                <!-- Submit Button -->
+                <button type="submit" class="btn btn-primary">ارسال</button>
+                </div>
+      </div>
+    </div>
+  </div>
+  
 @push('myscripts')
 @endpush
 @endsection

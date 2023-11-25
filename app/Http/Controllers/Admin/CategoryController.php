@@ -186,4 +186,13 @@ class CategoryController extends Controller
         return redirect()->back()->with('success', 'تم ارسال الاشعارات');
 
     }
+
+    //
+
+    public function users() {
+
+        $users = User::all();
+        return view('Admin.Category.users', compact('users'));
+
+    }
 }
