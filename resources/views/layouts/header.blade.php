@@ -57,3 +57,8 @@
 </head>
 
 <body>
+  <div class="whatsapppico">
+    <a target="_blank" href="https://wa.me/+905318262770">
+      <i class="fa-brands fa-whatsapp"></i>
+    </a>
+  </div>
