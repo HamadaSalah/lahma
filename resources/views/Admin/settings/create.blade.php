@@ -39,7 +39,7 @@
             </div>
             <div class="mb-3">
                 <label for="catname" class="form-label">فيديو انترو الموبايل</label>
-                <input type="file" name="video" class="form-control" accept=".mp4">
+                <input type="file" name="video" class="form-control" accept=".mp4,.jpg,.jpeg,.png">
             </div>
             <div class="mb-3">
                 <label for="catname" class="form-label">حالة فيديو الموبايل</label>
