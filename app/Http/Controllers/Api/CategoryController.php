@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Api;
 
 use App\Http\Controllers\Controller;
 use App\Models\Category;
+use App\Models\Favourite;
 use App\Models\Order;
 use App\Models\OrderProduct;
 use App\Models\Product;
@@ -24,7 +25,7 @@ class CategoryController extends Controller
      */
     public function index()
     {
-        $cats = Category::with(['child', 'parent', 'products', 'child.products',  'child.products.products'])->where('category_id', NULL)->get();
+        $cats = Category::with(['child', 'parent', 'products', 'products.favourite', 'child.products',  'child.products.products', 'child.products.favourite'])->where('category_id', NULL)->get();
 
         $products = Product::whereIn('id', [1,2,16,52,17,18])->get();
 
@@ -365,7 +366,17 @@ class CategoryController extends Controller
             ]);
             
             Auth::login($user);
- 
+    }
+    public function addToFavoutote($id) {
+        Favourite::create([
+            'user_id' => auth()->user()->id,
+            'product_id' => $id
+        ]);
+        return response()->json(['message' => 'add To Favourite SUccessfully'], 200);
+    }
 
+    public function adallfav() {
+       $data = Favourite::with('product')->where('user_id', auth()->user()->id)->get();
+        return response()->json($data, 200);
     }
 }

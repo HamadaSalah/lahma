@@ -38,6 +38,13 @@ class Product extends Model
     public function category() {
         return $this->belongsTo(Category::class, 'category_id', 'id');
     }
+    public function favourite() {
+        if($this->hasOne(Favourite::class, 'product_id', 'id')) {
+            return "True";
+        }
+        return "False";
+    }
+
     public function getDescriptionAttribute($value)
     {
         // strip_tags() function will remove all HTML tags from the string.

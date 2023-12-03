@@ -129,6 +129,10 @@
                     المدينة: ${data.city}
                     <br>
                     الدفع: ${data.paytype}
+                    <br>
+                    تفاصيل: ${data.description}
+                    <br>
+                    موعد التوصيل: ${data.time}
                     `;
 
 
