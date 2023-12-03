@@ -201,6 +201,8 @@ class CategoryController extends Controller
                 'address' => $request->address,
                 'paytype' => $request->paytybe,
                 'city' => $request->city,
+                'description' => $request->description,
+                'time' => $request->time,
             ]);
 
             foreach($request->products as $mycart) {
