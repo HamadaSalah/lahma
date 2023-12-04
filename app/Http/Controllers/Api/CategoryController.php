@@ -25,7 +25,7 @@ class CategoryController extends Controller
      */
     public function index()
     {
-        $cats = Category::with(['child', 'parent', 'products', 'products.favourite', 'child.products',  'child.products.products', 'child.products.favourite'])->where('category_id', NULL)->get();
+        $cats = Category::with(['child', 'parent', 'products',  'child.products',  'child.products.products' ])->where('category_id', NULL)->get();
 
         $products = Product::whereIn('id', [1,2,16,52,17,18])->get();
 
