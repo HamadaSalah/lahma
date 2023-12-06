@@ -188,7 +188,6 @@ class ProductController extends Controller
         if(isset($request->options) && count($request->options) > 0) {
             $product->options()->sync($request->options);
         }
-        if($request->pro_type == 'yes') {
             $nestedproducts = [
                "names" => $request->names,
                "prices" =>  $request->prices,
@@ -204,15 +203,16 @@ class ProductController extends Controller
                     "description" => $nestedproducts['descriptions'][$index] // Remove the last two characters from description
                 ];
             }
+            $product->products()->delete();
+
             foreach($outputArray as $nested){
-                SubProduct::create([
+                $pro = SubProduct::create([
                     'name' => $nested['name'],
                     'price' => $nested['price'],
                     'description' => $nested['description'],
                     'product_id' =>   $product->id
                 ]);
             }
-        }
         
         return redirect()->route('admin.products.index')->with('success', 'تم تعديل المنتج بنجاح');
     }
