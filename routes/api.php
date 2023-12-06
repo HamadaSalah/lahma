@@ -25,13 +25,12 @@ Route::post('/contacts', [CategoryController::class, 'contactsForm'])->name('con
 Route::get('/bulksend/{id}', [CategoryController::class, 'bulksend'])->name('bulksend');
 Route::post('/sms', [CategoryController::class, 'sms'])->name('sms');
 Route::post('/verifycode', [CategoryController::class, 'verifycode'])->name('verifycode');
-Route::post('/add-to-fav/{id}', [CategoryController::class, 'addToFavoutote'])->name('addToFavoutote');
-Route::get('/adallfav', [CategoryController::class, 'adallfav'])->name('adallfav');
 
 
 
 Route::group(['middleware' => 'auth:api'], function ($router) {
-    Route::post('/add-to-fav/{id}', [CategoryController::class, 'addToFavoutote'])->name('addToFavoutote');
+    Route::get('/add-to-fav/{id}', [CategoryController::class, 'addToFavoutote'])->name('addToFavoutote');
+    Route::delete('/delete-to-fav/{id}', [CategoryController::class, 'DeleteFromFavoutote'])->name('DeleteFromFavoutote');
 Route::get('/adallfav', [CategoryController::class, 'adallfav'])->name('adallfav');
 
     Route::get('/orders', [CategoryController::class, 'orders'])->name('orders');

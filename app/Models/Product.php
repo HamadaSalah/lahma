@@ -18,6 +18,7 @@ class Product extends Model
         'category_id',
         'count'
     ];
+    protected $appends = ['display_favourite'];
 
     public function products() {
         return $this->hasMany(SubProduct::class);
@@ -29,6 +30,13 @@ class Product extends Model
     {
         return $this->rates()->average('rate') ?? null;
     }
+    public function getDisplayFavouriteAttribute()
+    {
+        if(!empty($this->favourite)) {
+            return true;
+        }
+        return false;
+     }
 
     public function options(): BelongsToMany
     {
@@ -39,10 +47,7 @@ class Product extends Model
         return $this->belongsTo(Category::class, 'category_id', 'id');
     }
     public function favourite() {
-        if($this->hasOne(Favourite::class, 'product_id', 'id')) {
-            return "True";
-        }
-        return "False";
+         return $this->hasOne(Favourite::class, 'product_id', 'id');
     }
 
     public function getDescriptionAttribute($value)

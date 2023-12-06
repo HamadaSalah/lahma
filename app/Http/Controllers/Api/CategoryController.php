@@ -370,7 +370,7 @@ class CategoryController extends Controller
             Auth::login($user);
     }
     public function addToFavoutote($id) {
-        Favourite::create([
+        Favourite::updateOrCreate([
             'user_id' => auth()->user()->id,
             'product_id' => $id
         ]);
@@ -380,5 +380,14 @@ class CategoryController extends Controller
     public function adallfav() {
        $data = Favourite::with('product')->where('user_id', auth()->user()->id)->get();
         return response()->json($data, 200);
+    }
+    public function DeleteFromFavoutote($id) {
+
+        $fav = Favourite::where('product_id', $id);
+
+        $fav->delete();
+        
+        return response()->json(['message' => 'Delete From Favourite SUccessfully'], 200);
+
     }
 }
