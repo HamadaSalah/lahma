@@ -195,23 +195,26 @@ class ProductController extends Controller
             ];
 
             $outputArray = [];
-
-            foreach ($nestedproducts['names'] as $index => $name) {
-                $outputArray[] = [
-                    "name" => $name,
-                    "price" => (int)$nestedproducts['prices'][$index],
-                    "description" => $nestedproducts['descriptions'][$index] // Remove the last two characters from description
-                ];
+            if(count($outputArray) > 0) {
+                foreach ($nestedproducts['names'] as $index => $name) {
+                    $outputArray[] = [
+                        "name" => $name,
+                        "price" => (int)$nestedproducts['prices'][$index],
+                        "description" => $nestedproducts['descriptions'][$index] // Remove the last two characters from description
+                    ];
+                }
             }
             $product->products()->delete();
+            if(count($outputArray) > 0) {
+                foreach($outputArray as $nested){
+                    $pro = SubProduct::create([
+                        'name' => $nested['name'],
+                        'price' => $nested['price'],
+                        'description' => $nested['description'],
+                        'product_id' =>   $product->id
+                    ]);
+                }
 
-            foreach($outputArray as $nested){
-                $pro = SubProduct::create([
-                    'name' => $nested['name'],
-                    'price' => $nested['price'],
-                    'description' => $nested['description'],
-                    'product_id' =>   $product->id
-                ]);
             }
         
         return redirect()->route('admin.products.index')->with('success', 'تم تعديل المنتج بنجاح');
