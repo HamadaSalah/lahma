@@ -27,7 +27,7 @@
                         <i class="fa-solid fa-code-fork"></i>
                     </a>
                 </td>
-                <td>{{$product->price ? $product->price : 'السعر يشمل منتجات داخلية'}}</td>
+                <td>{{$product->price}}  <br/>  {{count($product->products) > 0 ? 'السعر يشمل منتجات داخلية' : ''}}</td>
                 <td>
                     @if ($product->img)
                     <img src="{{ asset('uploads/'.$product->img) }}" style="width: 100px;border-radius: 5px" alt="xd"></td>

@@ -43,7 +43,7 @@
             </div>
 
 
-            <div class="mb-3" id="inputFields" style="<?php if(count($product->products) > 0) echo "display:block" ?>">
+            <div class="mb-3" id="inputFields">
                 <button type="button" class="btn btn-primary" onclick="addInputFields()">أضافة منتج داخلي</button>
                 <br />
                 @foreach ($product->products as $item)
@@ -54,12 +54,12 @@
                     <hr>
                 @endforeach
             </div>
-            @if ( $product->price)
+            {{-- @if ( $product->price) --}}
                 <div class="mb-3" id="PriceTab">
                     <label for="catname" class="form-label"> سعر المنتج بالريال</label>
                     <input type="number" name="price" class="form-control" id="catname" value="{{ $product->price }}">
                 </div> 
-            @endif
+            {{-- @endif --}}
 
             <div class="mb-3">
                 <label for="catname" class="form-label">تفاصيل المنتج</label>
@@ -156,11 +156,11 @@
                         "display": "block"
                     });
                     $('#PriceTab').css({
-                        "display": "none"
+                        "display": "block"
                     });
                 } else {
                     $('#inputFields').css({
-                        "display": "none"
+                        "display": "block"
                     });
                     $('#PriceTab').css({
                         "display": "block"

@@ -193,9 +193,8 @@ class ProductController extends Controller
                "prices" =>  $request->prices,
                 "descriptions" => $request->descriptions
             ];
-
             $outputArray = [];
-            if(count($outputArray) > 0) {
+            if(count($nestedproducts) > 0) {
                 foreach ($nestedproducts['names'] as $index => $name) {
                     $outputArray[] = [
                         "name" => $name,
