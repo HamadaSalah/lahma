@@ -28,6 +28,7 @@ Route::get('/orders', [App\Http\Controllers\HomeController::class, 'orders'])->m
 Route::get('/contactus', [App\Http\Controllers\HomeController::class, 'contactus'])->name('contactus');
 Route::post('/search', [App\Http\Controllers\HomeController::class, 'search'])->name('search');
 Route::get('/myregisterr', [App\Http\Controllers\HomeController::class, 'myregisterr'])->name('myregisterr');
+Route::get('/terms', [App\Http\Controllers\HomeController::class, 'terms'])->name('terms');
 
 
 Route::get('removeElement/{id}', function($id) {

@@ -188,4 +188,7 @@ class HomeController extends Controller
         return view('search', compact('products'));
 
     }
+    public function terms() {
+        return view('terms');
+    }
 }

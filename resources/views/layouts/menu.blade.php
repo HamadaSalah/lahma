@@ -40,6 +40,9 @@
                         <a class="nav-link" href="{{Route('contactus')}}">اتصل بنا</a>
                     </li>
                     <li class="nav-item">
+                        <a class="nav-link" href="{{Route('terms')}}">الشروط والاحكام</a>
+                    </li>
+                    <li class="nav-item">
                     </li>
                     @guest
                     <li class="nav-item">
