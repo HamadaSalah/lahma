@@ -28,7 +28,7 @@
            
         </div>
         <div class="col-lg-4 col-sm-12">
-          <h4 class="mt-2" style="padding-right: 10px">   الرقم الضريبي: 31065454500003
+          {{-- <h4 class="mt-2" style="padding-right: 10px">   الرقم الضريبي: 31065454500003 --}}
           </h4>
            
         </div>
