@@ -87,7 +87,6 @@
         var number = '966'+$("#phone").val();
 
         randomNumber = Math.floor(Math.random() * (999999 - 100000 + 1)) + 100000;
-        console.log(randomNumber);
         $.ajax({
            type:'POST',
            url: '{{Route('sms')}}',
@@ -102,7 +101,6 @@
 
     function verify() {
         var code = $("#verification").val();
-        console.log(code);
         if(randomNumber == code) {
             document.getElementById('MyRegFormm').submit();
 

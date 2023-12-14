@@ -2,28 +2,33 @@
 <div class="footer" id="footer">
     <div class="container">
       <div class="row">
-        <div class="col-lg-6 col-sm-12" >
-          <h4>عن ابو لحمة</h4>
-          <p>تطبيقنا هو وجهتك المميزة لشراء أفضل أنواع الأغنام، واللحوم الطازجة، والعجول المميزة. نتفرد بتقديم تجربة فريدة من نوعها في التقطيع والتغليف،</p>
+        <div class="col-lg-4 col-sm-12" >
+          <h4>عن الذهبية للذبائح</h4>
+          <p>تطبيق الذهبية للذبائح هو التطبيق الرائد في مجال بيع الذبائح في المنطقة الشرقية . يوفر التطبيق مجموعة واسعة من الذبائح الطازجة من أفضل أنواع المواشي</p>
           <i class="fa-brands fa-facebook"></i>
           <i class="fa-brands fa-twitter"></i>
           <i class="fa-brands fa-instagram"></i>
           <i class="fa-brands fa-tiktok"></i>
         </div>
-        <div class="col-lg-6 col-sm-12">
+        <div class="col-lg-4 col-sm-12">
           <h4> زوايا</h4>
           <p>المنتجات
           </p>
           <p>أكثر المنتجات طلباً
           </p>
           <p>اتصل بنا</p>
+        </div>
+        <div class="col-lg-4 col-sm-12">
           <img src="{{asset('pngegg.png')}}" alt="">
+
         </div>
-        <div class="col-lg-6 col-sm-12">
+        <div class="col-lg-8 col-sm-12" style="padding: 20px 0px!important">
           <img src="img/maz/pay.png" style="max-width: 100%;" alt="">
+          </h4>
+           
         </div>
-        <div class="col-lg-6 col-sm-12">
-          <h4>  الرقم الضريبي: 31065454500003
+        <div class="col-lg-4 col-sm-12">
+          <h4 class="mt-2" style="padding-right: 10px">   الرقم الضريبي: 31065454500003
           </h4>
            
         </div>

@@ -804,6 +804,9 @@ input[type="number"], span {
         border-bottom-left-radius: 16px;
         border-bottom-right-radius: 16px;
     }
+    #BigCarousel .carousel-item img {
+        height: 300px!important;
+    }
 }
 
 .OneCart {
